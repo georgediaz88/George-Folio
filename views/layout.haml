@@ -9,7 +9,16 @@
       #logo 
         George M Diaz
         #sub My Self Created Portfolio
+
       #pagewrap
+        #social_media
+          #contact_methods
+            .facebook
+              %a{:href => 'http://www.facebook.com/profile.php?id=1144343153', :target => '_blank'}
+                %img{:src => '/images/facebook_icon_small.png', :height => '50px', :width => '50px'}
+            .linked_in
+              %a{:href => 'http://www.linkedin.com/pub/george-diaz/20/89/615', :target => '_blank'}
+                %img{:src => '/images/linked_in_small.png', :height => '50px', :width => '50px'}
         %p.nav
           %a{:href=>'/'} Home
           |
@@ -18,8 +27,6 @@
           %a{:href=>'/my_work'} My Work
           |
           %a{:href=>'/contact_me'} Contact Me
-
         = yield
-
         #footer_email 
           Let's Talk? Email Me at: <a href='mailto:georgediaz88@yahoo.com'>georgediaz88@yahoo.com</a>   
