@@ -1,0 +1,152 @@
+$standout_green: DarkSeaGreen;
+$fadeout_gray: DarkGrey;
+$gray_color: Grey;
+
+body{
+
+    background-color:#2C2C29;
+
+    #wrapper {
+        width: 811px;
+        margin: 20px auto;
+        text-align: left;
+    }
+
+    #logo {
+        color: #FFFFFF;
+        font-family: Vera,Helvetica,Georgia;
+        font-size: 36px;
+        margin-top: 7px;
+        padding: 0;
+        text-decoration:none;
+        text-transform: uppercase;
+      #sub {
+          font-size:12px;
+          display:block;
+          height: 20px;
+          margin: -2px 2px 1px;
+      }
+    }
+
+  #pagewrap {
+      //height: 811px; this adds height to every page
+      background-color:WhiteSmoke;
+      // font-family: helvetica,arial,sans-serif;
+      font-size: 24px;
+      text-transform: uppercase;
+      text-align: center;
+
+      //padding-top: 50px;
+      padding-right: 50px;
+      padding-bottom: 50px;
+      padding-left: 50px;
+    
+      border-top: 1px solid #000000;
+      border-right: 1px solid #000000;
+      border-bottom: 1px solid #000000;
+      border-left: 1px solid #000000;
+      
+      span {color:$standout_green;}
+      
+      span.gray {color:$fadeout_gray;}
+
+      .home_wording {
+          padding-top: 18px;
+          color:$fadeout_gray;
+      }
+      
+      #msg {display:none;}
+      
+      p, #about_me_description, #my_work {font-family:Comic Sans MS;}
+  
+      .nav {
+        font-size:18px;
+      }
+      
+      .italic {font-style:italic;}
+      
+      form {
+          legend {color:$fadeout_gray;}
+          label {font-size: 18px; text-align:left}
+          p.padded_email_box {padding-left:55px;}
+          p.padded_text_box {padding-left: 4px;}
+          #text_box {width: 260px;}
+          #email_box {width: 260px;}
+          #description {vertical-align: text-top; width: 269px;}
+          .submit {}
+      }
+
+
+      #home_header {
+        text-align:left !important;
+        #social_media {
+          position:relative;
+          top:-89px;
+          left:535px;
+          #contact_methods {
+            ul {
+                list-style-type:none;
+              li {
+                  float:left;
+                  .facebook { 
+                    background:url("/images/facebook_icon_small.png") 0 0 no-repeat; 
+                    height:102px;
+                    width: 102px;
+                    display:block; }
+                  .linked_in { 
+                    background:url("/images/linked_in_small.png") 0 0 no-repeat;
+                    height:100px;
+                    width:100px;
+                    display:block; }
+              }
+            }
+          }
+        }
+        #home_name {}
+      }
+
+      #home_image {
+          background:url("/images/profile_pic.png") 0 0 no-repeat;
+          margin:auto;
+          height:387px;
+          width:439px;
+          display:block;
+      }
+
+      .about_me_pic {
+          background:url("/images/cake.png") 0 0 no-repeat;
+          margin: auto;
+          height:225px;
+          width:300px;
+          display:block;    
+      }
+
+      #footer_email {
+          color:$fadeout_gray;
+          font-weight:bold;
+          font-size:15px;
+          a { text-decoration:none; color:RosyBrown;}
+          padding-top: 40px;
+      }
+      
+      #about_me_description {
+          text-align:left !important;
+          font-size: 14px !important;
+          color: $gray_color;
+          p { text-indent: 1.5em; line-height:2.0em;}
+          ul { list-style-type:none;}
+          
+          li {}
+      }
+      
+      #my_work {
+          text-align:left !important;
+          font-size: 14px !important;
+          color: $gray_color;
+          p { text-indent: 1.5em; line-height:2.0em;}
+          ul { list-style-type:none;}
+          li {}
+      }      
+
+    }
+}

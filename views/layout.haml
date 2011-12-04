@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title= @title || "George's Portfolio"
+    %link(rel="stylesheet" media="screen, projection" href="/style.css")
+    %script(type="text/javascript" src="/javascript/jquery-latest.js")
+  %body
+    #wrapper
+      #logo 
+        George M Diaz
+        #sub My Self Created Portfolio
+      #pagewrap
+        %p.nav
+          %a{:href=>'/'} Home
+          |
+          %a{:href=>'/about_me'} About Me
+          |
+          %a{:href=>'/my_work'} My Work
+          |
+          %a{:href=>'/contact_me'} Contact Me
+
+        = yield
+
+        #footer_email 
+          Let's Talk? Email Me at: <a href='mailto:georgediaz88@yahoo.com'>georgediaz88@yahoo.com</a>   
