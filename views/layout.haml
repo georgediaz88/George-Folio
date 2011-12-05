@@ -2,15 +2,15 @@
 %html
   %head
     %title= @title || "George's Portfolio"
-    %link(rel="stylesheet" media="screen, projection" href="/style.css")
-    %script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js")
-    %script(type="text/javascript" src="/javascript/slides.min.jquery.js")
+    %link{:rel=>'stylesheet', :media=>'screen, projection', :href=>'/style.css'}
+    %script{:type=>'text/javascript', :src=>'https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'}
+    %script{:type=>'text/javascript', :src=>'/javascript/slides.min.jquery.js'}
 
   %body#per_page
     #wrapper
       #logo 
         George M Diaz
-        #sub My Self Created Portfolio
+        #subheader My Self Created Portfolio
 
       #pagewrap
         #social_media
