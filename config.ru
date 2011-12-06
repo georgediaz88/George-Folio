@@ -4,6 +4,9 @@ require 'bundler/setup'
 require 'sinatra'
 require 'haml'
 require 'sass'
+require 'pony'
+
+require File.dirname(__FILE__) + '/config/email_defaults'
 require File.dirname(__FILE__) + '/app'
 
 #ENV['RACK_ENV'] ||= "development"

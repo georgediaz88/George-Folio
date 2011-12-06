@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/config/email_defaults'
+#require items here
 
 ######### re-route css to sass templating
 get '/style.css' do
@@ -34,7 +34,6 @@ post '/send_email' do
     Pony.mail  :to => 'georgediaz88@yahoo.com', 
                :subject => 'Message Sent From ' + @name, 
                :body => @description + ' --- sent from ' + @email
-    
     haml :receipt_email #Show User Thank You Template
   end
 end

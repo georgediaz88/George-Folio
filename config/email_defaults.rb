@@ -1,4 +1,3 @@
-require 'pony'
 #setup email defaults here --> smtp settings for gmail:
 Pony.options = { :from => 'allrecipefavorites@gmail.com', :via => :smtp, 
                  :via_options => {  :address => 'smtp.gmail.com',
