@@ -244,11 +244,13 @@ body#per_page{
         border-right: 1px solid #000000;
         border-bottom: 1px solid #000000;
         border-left: 1px solid #000000;
-      
+
+        .job_titles {font-style:italic;}
+
         span {color:$standout_green;}
-      
+
         span.gray {color:$fadeout_gray;}
-        
+
         #social_media {
           #contact_methods {
               .facebook { 
@@ -330,7 +332,7 @@ body#per_page{
             font-size: 14px !important;
             color: $gray_color;
             p { text-indent: 1.5em; line-height:2.0em;}
-            ul { list-style-type:none;}
+            ul { list-style-type:circle;}
           
             li {}
         }
