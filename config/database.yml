@@ -1,0 +1,8 @@
+development:
+  default: &default_development
+    adapter: mysql
+    host: localhost
+    username: root
+    database: portfolio_development
+    socket: /tmp/mysql.sock
+
