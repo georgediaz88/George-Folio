@@ -5,12 +5,14 @@ require 'sinatra'
 require 'haml'
 require 'sass'
 require 'pony'
+require 'data_mapper'
 
+require File.dirname(__FILE__) + '/config/db_config'
 require File.dirname(__FILE__) + '/config/email_defaults'
 require File.dirname(__FILE__) + '/app'
 
-#ENV['RACK_ENV'] ||= "development"
-#Bundler.require(:default, (ENV['RACK_ENV'].to_sym))
+ENV['RACK_ENV'] ||= "development"
+Bundler.require(:default, (ENV['RACK_ENV'].to_sym))
 
 set :run, false
 set :raise_errors, true
