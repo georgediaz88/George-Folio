@@ -5,9 +5,7 @@ require 'sinatra'
 require 'haml'
 require 'sass'
 require 'pony'
-require 'data_mapper'
 
-require File.dirname(__FILE__) + '/config/db_config'
 require File.dirname(__FILE__) + '/config/email_defaults'
 require File.dirname(__FILE__) + '/app'
 
