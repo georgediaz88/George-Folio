@@ -16,4 +16,4 @@ set :run, false
 set :raise_errors, true
 #set :views, Proc.new { File.join(root, "templates") }
 
-run Sinatra::Application
+run MyApp
