@@ -1,16 +1,5 @@
 #require items here
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
-class GmailAccount
-  include DataMapper::Resource  
-  property :id,           Serial
-  property :username,     String
-  property :password,     String
-end
-
-DataMapper.auto_upgrade!
-
-
 class MyApp < Sinatra::Base
   
   ######### re-route css to sass templating
