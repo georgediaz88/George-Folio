@@ -8,8 +8,8 @@ require 'pony'
 require 'data_mapper'
 
 %w{
-  /lib/models/gmail_account 
-  /config/email_defaults 
+  /lib/models/gmail_account
+  /config/email_defaults
   /app
   }.each {|file| require File.dirname(__FILE__) + file }
 

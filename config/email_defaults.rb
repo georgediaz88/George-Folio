@@ -1,6 +1,6 @@
 #setup email defaults here --> smtp settings for gmail:
 signin_obj = GmailAccount.first
-Pony.options = { :from => 'allrecipefavorites@gmail.com', :via => :smtp, 
+Pony.options = { :from => signin_obj.username, :via => :smtp, 
                  :via_options => {  :address => 'smtp.gmail.com',
                                     :port => '587',
                                     :enable_starttls_auto => true,
