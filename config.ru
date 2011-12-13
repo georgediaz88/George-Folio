@@ -5,9 +5,13 @@ require 'sinatra'
 require 'haml'
 require 'sass'
 require 'pony'
+require 'data_mapper'
 
-require File.dirname(__FILE__) + '/config/email_defaults'
-require File.dirname(__FILE__) + '/app'
+%w{
+  /lib/models/gmail_account 
+  /config/email_defaults 
+  /app
+  }.each {|file| require File.dirname(__FILE__) + file }
 
 ENV['RACK_ENV'] ||= "development"
 Bundler.require(:default, (ENV['RACK_ENV'].to_sym))

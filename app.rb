@@ -1,7 +1,7 @@
 #require items here
 
 class MyApp < Sinatra::Base
-
+  
   ######### re-route css to sass templating
   get '/style.css' do
     scss :'css/style'
