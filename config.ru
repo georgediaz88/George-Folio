@@ -6,6 +6,9 @@ require 'haml'
 require 'sass'
 require 'pony'
 require 'data_mapper'
+require 'dm-postgres-adapter'
+
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
 
 %w{
   /lib/models/gmail_account
