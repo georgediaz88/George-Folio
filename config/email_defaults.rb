@@ -4,7 +4,7 @@ Pony.options = { :from => 'allrecipefavorites@gmail.com', :via => :smtp,
                                     :port => '587',
                                     :enable_starttls_auto => true,
                                     :user_name => 'allrecipefavorites@gmail.com',
-                                    :password =>  ENV['GMAIL_PSWD'] || 'recipefavorites',
+                                    :password =>  ENV['GMAIL_PSWD'],
                                     :authentication => :plain,
                                     :domain => "HELO" } 
                 }
