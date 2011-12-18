@@ -220,12 +220,22 @@ body#per_page{
         padding: 0;
         text-decoration:none;
         text-transform: uppercase;
-      #subheader {
-          font-size:12px;
-          display:block;
-          height: 20px;
-          margin: -10px 0 0 2px;
-      }
+        #subheader {
+            font-size:12px;
+            // display:block;
+            height: 20px;
+            margin: -20px 0 0 -35px;
+            #menu {
+              ul {
+                  list-style-type:none;
+                  li {
+                      float:left;
+                      padding-right:12px;
+                      a:visited {color: #FFFFFF;}
+                  }
+              }
+            }
+        }
     }
 
     #pagewrap {
@@ -281,10 +291,6 @@ body#per_page{
       
         p, #about_me_description, #my_work {font-family:Comic Sans MS;}
   
-        .nav {
-          font-size:18px;
-        }
-      
         .italic {font-style:italic;}
       
         form {

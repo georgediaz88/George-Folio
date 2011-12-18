@@ -4,12 +4,22 @@
     %title= @title || "George's Portfolio"
     %link{:rel=>'stylesheet', :media=>'screen, projection', :href=>'/style.css'}
     %script{:type=>'text/javascript', :src=>'https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'}
-
+  
   %body#per_page
     #wrapper
       #logo 
         George M Diaz
-        #subheader My Self Created Portfolio
+        #subheader 
+          #menu
+            %ul
+              %li
+                %a{:href=>'/'} Home
+              %li
+                %a{:href=>'/about_me'} About Me
+              %li
+                %a{:href=>'/my_work'} My Work
+              %li
+                %a{:href=>'/contact_me'} Contact Me
 
       #pagewrap
         #social_media
@@ -20,14 +30,6 @@
             .linked_in
               %a{:href => 'http://www.linkedin.com/pub/george-diaz/20/89/615', :target => '_blank'}
                 %img{:src => '/images/linked_in_small.png', :height => '50px', :width => '50px'}
-        %p.nav
-          %a{:href=>'/'} Home
-          |
-          %a{:href=>'/about_me'} About Me
-          |
-          %a{:href=>'/my_work'} My Work
-          |
-          %a{:href=>'/contact_me'} Contact Me
         = yield
         #footer_email 
           Let's Talk? Email Me at: <a href='mailto:georgediaz88@yahoo.com'>georgediaz88@yahoo.com</a>
