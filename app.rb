@@ -34,8 +34,8 @@ class MyApp < Sinatra::Base
       redirect '/contact_me'
     else
       Pony.mail  :to => 'georgediaz88@yahoo.com',
-                 :subject => 'Message Sent From ' + @name,
-                 :body => @description + ' --- sent from ' + @email
+                 :subject => "Message Sent From #{@name}",
+                 :body => "#{@description} --- sent from #{@email}"
       haml :receipt_email #Show User Thank You Template
     end
   end

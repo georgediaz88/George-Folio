@@ -73,6 +73,7 @@ body {
 	top:15px;
 	left:4px;
 	z-index:100;
+	a:link, a:visited {color:transparent;}
 }
 
 /*
@@ -192,12 +193,13 @@ body {
 
 /*
 	Anchors
-*/
 
+*/
 a:link, a:visited {
 	color:SteelBlue;
-	text-decoration:none;
 }
+
+
 
 /* 
 #######################################################################
@@ -231,7 +233,7 @@ body#per_page{
                   li {
                       float:left;
                       padding-right:12px;
-                      a:visited {color: #FFFFFF;}
+                      a {color: #FFFFFF;}
                   }
               }
             }
@@ -264,19 +266,17 @@ body#per_page{
         #social_media {
           #contact_methods {
               .facebook { 
-                //background:url("/images/facebook_icon_small.png") 0 0 no-repeat; 
-                position:fixed;
-                z-index:0;
-                width:8em;
-                margin-left: 786px;
+                  position:fixed;
+                  width:8em;
+                  margin-left: 786px;
+                  a:link, a:visited {color:transparent;}
                }
               .linked_in { 
-                //background:url("/images/linked_in_small.png") 0 0 no-repeat;
-                position:fixed;
-                z-index:0;
-                width:8em;
-                margin-top: 2.5em;
-                margin-left: 780px;
+                  position:fixed;
+                  width:8em;
+                  margin-top: 2.5em;
+                  margin-left: 780px;
+                  a:link, a:visited {color:transparent;}
               }
           }
         }
