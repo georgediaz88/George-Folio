@@ -26,7 +26,29 @@ describe "My Sites Pages" do
     get '/contact_me'
     last_response.status.should ==  200 # this is alternate to be_ok
   end
-  
-  ##TODO: Test Email Feature through Pony
 
 end
+
+describe "Test Email Feature" do
+
+  before(:all) do
+    Pony.stub!(:deliver)
+  end
+  
+  it "sends mail" do
+    Pony.should_receive(:deliver) do |mail|
+      mail.to.should == [ 'test@test.com' ]
+      mail.from.should == [ 'me@test.com' ]
+      mail.subject.should == 'hi'
+      mail.body.should == 'Hello World!'
+    end
+    Pony.mail(:to => 'test@test.com', :from => 'me@test.com', :subject => 'hi', :body => 'Hello World!')
+  end
+  
+  it "requires :to paramater to be initialized" do
+    lambda { Pony.mail({}) }.should raise_error(ArgumentError)
+  end
+
+end
+
+

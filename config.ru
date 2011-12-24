@@ -4,12 +4,8 @@ require 'bundler/setup'
 require 'sinatra'
 require 'haml'
 require 'sass'
-require 'pony'
 
-%w{
-  /config/email_defaults
-  /app
-  }.each {|file| require File.dirname(__FILE__) + file }
+require File.join(File.dirname(__FILE__), 'app')
 
 ENV['RACK_ENV'] ||= "development"
 Bundler.require(:default, (ENV['RACK_ENV'].to_sym))

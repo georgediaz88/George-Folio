@@ -1,8 +1,11 @@
-#require items here
+require 'pony'
+
+#add required files below
+%w{ /config/email_defaults }.each {|file| require File.dirname(__FILE__) + file }
 
 module GeorgeFolio
   class MyApp < Sinatra::Base
-  
+
     ######### re-route css to sass templating
     get '/style.css' do
       scss :'css/style'
