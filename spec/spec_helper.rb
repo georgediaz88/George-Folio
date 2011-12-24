@@ -17,4 +17,5 @@ end
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+  config.color_enabled = true
 end
