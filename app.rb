@@ -1,7 +1,6 @@
 #require items here
 
 module GeorgeFolio
-
   class MyApp < Sinatra::Base
   
     ######### re-route css to sass templating
@@ -43,7 +42,6 @@ module GeorgeFolio
     end
 
   end
-
 end
 
 
