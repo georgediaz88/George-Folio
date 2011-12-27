@@ -294,8 +294,8 @@ body#per_page{
         .italic {font-style:italic;}
       
         form {
-            legend {color:$fadeout_gray;}
-            label {font-size: 18px; text-align:left}
+            #sign_mssg {color:$fadeout_gray; font-size:20px;}
+            label {font-size: 18px;}
             p.padded_email_box {padding-left:55px;}
             p.padded_text_box {padding-left: 4px;}
             #text_box {width: 260px;}
