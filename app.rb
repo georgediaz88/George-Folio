@@ -1,7 +1,19 @@
 require 'pony'
+require 'data_mapper'
 
 #add required files below
 %w{ /config/email_defaults }.each {|file| require File.dirname(__FILE__) + file }
+
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
+
+class User
+  include DataMapper::Resource  
+  property :id,         Serial
+  property :email,      String
+  property :password,   String
+end
+
+DataMapper.auto_upgrade!
 
 module GeorgeFolio
   class MyApp < Sinatra::Base
