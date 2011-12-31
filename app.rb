@@ -4,7 +4,7 @@ require 'data_mapper'
 #add required files below
 %w{ /config/email_defaults }.each {|file| require File.dirname(__FILE__) + file }
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/my_development.db")
 
 class User
   include DataMapper::Resource  
