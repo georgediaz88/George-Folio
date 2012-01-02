@@ -7,15 +7,14 @@ class User
   include DataMapper::Resource
   property :id, Serial
   property :email, Text, :required => true
-  property :password, Text, :required => true
-  #property :hashed_password, Text #, :default => false
+  property :hashed_password, Text #, :default => false
   
-  #before :save, :encrypt_password
+  before :save, :encrypt_password
 
-  # def encrypt_password
-  #   unless self.password.blank?
-  #    self.hashed_password = Digest::SHA1.hexdigest(self.password)
-  #   end
-  # end
+  def encrypt_password
+    unless self.password.blank?
+     self.hashed_password = Digest::SHA1.hexdigest(self.password)
+    end
+  end
 
 end
