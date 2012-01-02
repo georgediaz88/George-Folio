@@ -3,7 +3,7 @@ require 'data_mapper'
 
 DataMapper.setup(:default, ENV["DATABASE_URL"] || "sqlite3://#{Dir.pwd}/folio.db")
 
-%w{ /config/email_defaults /lib/user.rb }.each {|file| require File.dirname(__FILE__) + file }
+%w{ /config/email_defaults /lib/user }.each {|file| require File.dirname(__FILE__) + file }
 
 DataMapper.finalize.auto_upgrade! #Tells Datamapper to automaticly update the database with changes made
 
