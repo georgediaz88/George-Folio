@@ -4,6 +4,8 @@ gem 'sinatra'
 gem 'haml'
 gem 'sass'
 gem 'pony'
+gem 'datamapper', '>= 1.1.0'
+gem 'dm-sqlite-adapter'
 gem 'dm-postgres-adapter'
 
 group :development do

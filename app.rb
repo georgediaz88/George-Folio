@@ -1,5 +1,7 @@
 #add required files below
 require 'pony'
+require 'data_mapper'
+
 %w{ /config/email_defaults }.each {|file| require File.dirname(__FILE__) + file }
 
 module GeorgeFolio
@@ -10,6 +12,20 @@ module GeorgeFolio
       scss :'css/style'
     end
     #########################################
+    
+    ####DB Setup: TODO -> Move to a file
+    
+    #DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/movies.db") #setting up new database name movies.db
+    DataMapper.setup(:default, ENV["DATABASE_URL"] || "sqlite3://#{Dir.pwd}/folio.db")
+
+    class User #DataMapper creates table
+      include DataMapper::Resource
+      property :id, Serial
+      property :email, Text, :required => true
+      property :hashed_password, Text, :required => true #, :default => false
+    end
+
+    DataMapper.finalize.auto_upgrade! #Tells Datamapper to automaticly update the database with changes made
 
     #HTTP calls
     get '/' do
