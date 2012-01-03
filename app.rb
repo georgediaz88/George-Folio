@@ -32,7 +32,7 @@ module GeorgeFolio
 
     post '/send_email' do
       @name, @email, @description = params[:name], params[:email], params[:description] #params retrieved from form
-      if (@name.empty? || @email.empty?)
+      if (@name.blank? || @email.blank?)
         redirect '/contact_me'
       else
         Pony.mail  :to => 'georgediaz88@yahoo.com',
