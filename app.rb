@@ -1,8 +1,14 @@
-#require items here ...
-%w{ /config/email_defaults /lib/user }.each {|file| require File.dirname(__FILE__) + file }
 
 module GeorgeFolio
   class MyApp < Sinatra::Base
+    
+    configure(:development) do
+      require 'pry'
+    end
+    
+    configure do
+      %w{ /config/email_defaults /lib/user }.each {|file| require File.dirname(__FILE__) + file }
+    end
 
     ######### re-route css to sass templating
     get '/style.css' do

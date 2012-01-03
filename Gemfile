@@ -11,6 +11,7 @@ group :development do
   gem 'tux'
   gem 'shotgun', :require => false
   gem 'thin', :require => false
+  gem 'pry', :git => 'git://github.com/pry/pry.git', :require => false
 end
 
 group :test do

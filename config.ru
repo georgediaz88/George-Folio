@@ -5,6 +5,9 @@ require 'sinatra'
 require 'pony'
 require 'data_mapper'
 
+vars_path = File.join(File.dirname(__FILE__), 'config', 'local_vars.rb')
+load(vars_path) if File.exists? vars_path
+
 require File.join(File.dirname(__FILE__), 'app')
 
 ENV['RACK_ENV'] ||= "development"
