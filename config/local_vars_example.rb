@@ -4,3 +4,9 @@
 
 ENV['GMAIL_USERNAME'] = 'enter_here'
 ENV['GMAIL_PSWD'] = 'enter_here'
+
+#TWITTER INFO HERE:
+ENV['C_KEY'] = ''
+ENV['CS_KEY'] = ''
+ENV['OA_TOKEN'] = ''
+ENV['OAS_TOKEN'] = ''

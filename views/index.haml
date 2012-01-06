@@ -3,4 +3,6 @@
     %h1 George's <span>Portfolio</span>
 
 #home_image
-%h4.home_wording I am ecstatic to report this app was created in <span>Sinatra</span><br/> (A Ruby Framework)
+%h4.home_wording 
+  .tweet "#{@last_tweet.text}"
+  <span>Latest Tweet via</span> <a href='http://www.twitter.com/georgediaz23' target='_blank'>Twitter</a>

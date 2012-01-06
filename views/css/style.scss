@@ -285,6 +285,7 @@ body#per_page{
         .home_wording {
             padding-top: 18px;
             color:$fadeout_gray;
+            .tweet {font-style:italic;}
         }
       
         #msg {display:none;}

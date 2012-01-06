@@ -1,10 +1,12 @@
 source :rubygems
 
 gem 'sinatra'
+gem 'heroku'
 gem 'haml'
 gem 'sass'
 gem 'pony'
 gem 'datamapper', '>= 1.1.0'
+gem 'twitter'
 
 group :development do
   gem 'dm-sqlite-adapter'

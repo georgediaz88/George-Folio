@@ -18,6 +18,7 @@ module GeorgeFolio
 
     #HTTP calls
     get '/' do
+      @last_tweet = Twitter.user_timeline.first
       haml :index
     end
 

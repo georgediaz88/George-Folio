@@ -20,5 +20,12 @@ set :raise_errors, true
 DataMapper.setup(:default, ENV["DATABASE_URL"] || "sqlite3://#{Dir.pwd}/folio.db")
 DataMapper.finalize.auto_upgrade! #Tells Datamapper to automaticly update the database with changes made
 
+Twitter.configure do |config|
+  config.consumer_key = ENV['C_KEY']
+  config.consumer_secret = ENV['CS_KEY']
+  config.oauth_token = ENV['OA_TOKEN']
+  config.oauth_token_secret = ENV['OAS_TOKEN']
+end
+
 run GeorgeFolio::MyApp
 
