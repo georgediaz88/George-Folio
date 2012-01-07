@@ -1,3 +1,5 @@
+require 'pony'
+require 'data_mapper'
 
 module GeorgeFolio
   class MyApp < Sinatra::Base
