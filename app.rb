@@ -2,12 +2,25 @@
 module GeorgeFolio
   class MyApp < Sinatra::Base
     
-    configure(:development) do
-      require 'pry'
-    end
-    
     configure do
       %w{ /config/email_defaults /lib/user }.each {|file| require File.dirname(__FILE__) + file }
+    end
+
+    helpers do
+      include Rack::Utils
+      alias_method :h, :escape_html
+
+      def protected!
+        unless authorized?
+          response['WWW-Authenticate'] = %(Basic realm="Restricted Area")
+          throw(:halt, [401, "Not authorized\n"])
+        end
+      end
+
+      def authorized?
+        @auth ||=  Rack::Auth::Basic::Request.new(request.env)
+        @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [ENV['GMAIL_PSWD'], ENV['GMAIL_PSWD']]
+      end
     end
 
     ######### re-route css to sass templating
@@ -48,6 +61,22 @@ module GeorgeFolio
         haml :receipt_email #Show User Thank You Template
       end
     end
+
+##Tweet
+    get '/tweet' do
+      protected!
+      haml :tweet
+    end
+
+    post '/post_tweet' do
+      if params['status'].blank?
+        redirect '/tweet'
+      else
+        Twitter.update(params['status'])
+        redirect '/'
+      end
+    end
+#######
 
   end
 end

@@ -1,0 +1,7 @@
+%br
+<span><i>Tweet! Tweet!</i></span>
+
+%form{:method => 'post', :action => '/post_tweet'}
+  %textarea{:name => 'status', :cols => '40', :rows => '6', :id => 'description'}
+  %p.submit
+    %input{:type => 'submit', :value => 'Submit'}

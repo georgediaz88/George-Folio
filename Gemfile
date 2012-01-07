@@ -13,7 +13,7 @@ group :development do
   gem 'tux'
   gem 'shotgun', :require => false
   gem 'thin', :require => false
-  gem 'pry', :git => 'git://github.com/pry/pry.git', :require => false
+  gem 'pry', :git => 'git://github.com/pry/pry.git'
 end
 
 group :test do
