@@ -285,7 +285,10 @@ body#per_page{
         .home_wording {
             padding-top: 18px;
             color:$fadeout_gray;
-            .tweet {font-style:italic;}
+            box-shadow: 15px 15px 10px #888888;
+            .tweet {
+                font-style:italic;
+            }
         }
       
         #msg {display:none;}
@@ -315,6 +318,7 @@ body#per_page{
             margin:auto;
             height:387px;
             width:439px;
+            box-shadow: 10px 10px 5px #888888;
             display:block;
         }
 
