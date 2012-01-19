@@ -285,10 +285,24 @@ body#per_page{
         .home_wording {
             padding-top: 18px;
             color:$fadeout_gray;
-            box-shadow: 15px 15px 10px #888888;
+            box-shadow: -4px 15px 25px #888888;
+            -ms-transition:-ms-transform 2s;
+            -moz-transition:-moz-transform 2s; /* Firefox 4 */
+            -webkit-transition:-webkit-transform 2s; /* Safari and Chrome */
+            -o-transition:-o-transform 2s; /* Opera */
+
             .tweet {
                 font-style:italic;
             }
+        }
+        
+        .home_wording:hover {
+            /*transform:rotate(360deg);*/
+            transform:scale(1.1, 1.1);
+            -ms-transform:scale(1.1, 1.1);
+            -moz-transform:scale(1.1, 1.1); /* Firefox 4 */
+            -webkit-transform:scale(1.1, 1.1); /* Safari and Chrome */
+            -o-transform:scale(1.1, 1.1); /* Opera */              
         }
       
         #msg {display:none;}
@@ -319,7 +333,6 @@ body#per_page{
             height:387px;
             width:439px;
             box-shadow: 10px 10px 5px #888888;
-            display:block;
         }
 
         .about_me_pic {
