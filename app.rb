@@ -5,7 +5,12 @@ module GeorgeFolio
   class MyApp < Sinatra::Base
     
     configure do
-      %w{ /config/email_defaults /lib/user }.each {|file| require File.dirname(__FILE__) + file }
+      %w{ /config/email_defaults /lib/user }.each {|file| require File.dirname(__FILE__) + file }      
+    end
+    
+    configure(:development,:production) do
+      DataMapper.setup(:default, ENV["DATABASE_URL"] || "sqlite3://#{Dir.pwd}/folio.db")
+      DataMapper.finalize.auto_upgrade! #Tells Datamapper to automaticly update the database with changes made
     end
 
     helpers do

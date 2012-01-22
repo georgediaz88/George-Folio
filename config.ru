@@ -8,16 +8,13 @@ Bundler.require(:default, (ENV['RACK_ENV'].to_sym))
 
 set :run, false
 set :raise_errors, true
-#set :views, Proc.new { File.join(root, "templates") }
+#set :views, proc { File.join(root, "templates") }
 
 vars_path = File.join(File.dirname(__FILE__), 'config', 'local_vars.rb')
 load(vars_path) if File.exists? vars_path
 
 require File.join(File.dirname(__FILE__), 'app')
-
-DataMapper.setup(:default, ENV["DATABASE_URL"] || "sqlite3://#{Dir.pwd}/folio.db")
-DataMapper.finalize.auto_upgrade! #Tells Datamapper to automaticly update the database with changes made
-
+      
 Twitter.configure do |config|
   config.consumer_key = ENV['C_KEY']
   config.consumer_secret = ENV['CS_KEY']

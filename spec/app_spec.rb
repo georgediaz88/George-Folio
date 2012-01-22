@@ -54,12 +54,13 @@ describe "Test Email Feature" do
 end
 
 describe "User" do
+
   before(:each) do 
     @user = User.create(:email => 'jondoe@apple.com', :password => 'pass')
-      #think of replacing w/ Fabricator or FactorGirl
+      #think of replacing w/ Fabricator or FactoryGirl
   end
   
-  it "should return user attributes" do
+  it "should return correct user attributes" do
     @user.email.should eql('jondoe@apple.com')
     @user.stub(:hashed_password).and_return('pass_encrypted')
     @user.hashed_password.should eql('pass_encrypted')
