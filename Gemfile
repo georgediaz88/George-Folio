@@ -9,6 +9,7 @@ gem 'datamapper', '>= 1.1.0'
 gem 'twitter'
 
 group :development do
+  gem 'guard-rspec'
   gem 'dm-sqlite-adapter'
   gem 'tux'
   gem 'shotgun', :require => false
