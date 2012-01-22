@@ -16,6 +16,10 @@ def app
 end
 
 RSpec.configure do |config|
+  config.before(:each) do
+    DataMapper.setup(:default, ENV["DATABASE_URL"] || "sqlite3://#{Dir.pwd}/folio_test.db")
+    DataMapper.auto_migrate! #will wipe away each time vs upgrade! by change
+  end
   config.include Rack::Test::Methods
   config.color_enabled = true
 end

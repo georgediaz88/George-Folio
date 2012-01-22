@@ -2,15 +2,17 @@ require 'spec_helper'
 
 describe "My Sites Pages" do
 
-  # it "should respond successfuly to homepage" do
-  #   get '/'
-  #   last_response.should be_ok
-  # end
-  #
-  # it "should persist homepage text name" do
-  #   get '/'
-  #   last_response.body.should match(/George's Portfolio/)
-  # end
+  it "should respond successfuly to homepage" do
+    pending("Research Twitter API call")
+    get '/'
+    last_response.should be_ok
+  end
+  
+  it "should persist homepage text name" do
+    pending("Dependent on Twitter Fix")
+    get '/'
+    last_response.body.should match(/George's Portfolio/)
+  end
   
   it "should respond successfuly to About Me page" do
     get '/about_me'
@@ -51,4 +53,16 @@ describe "Test Email Feature" do
 
 end
 
+describe "User" do
+  before(:each) do 
+    @user = User.create(:email => 'jondoe@apple.com', :password => 'pass')
+      #think of replacing w/ Fabricator or FactorGirl
+  end
+  
+  it "should return user attributes" do
+    @user.email.should eql('jondoe@apple.com')
+    @user.stub(:hashed_password).and_return('pass_encrypted')
+    @user.hashed_password.should eql('pass_encrypted')
+  end
+end
 
