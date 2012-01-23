@@ -345,7 +345,9 @@ body#per_page{
                 background:-moz-linear-gradient(top, lightgrey, white);
                 border:none;
             }
-            .submit {}
+            .submit {
+              input[type=submit] {}
+            }
         }
 
         #home_header {
