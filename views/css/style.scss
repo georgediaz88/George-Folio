@@ -316,9 +316,30 @@ body#per_page{
             label {font-size: 18px;}
             p.padded_email_box {padding-left:55px;}
             p.padded_text_box {padding-left: 4px;}
-            #text_box {width: 260px;}
-            #email_box {width: 260px;}
-            #description {vertical-align: text-top; width: 269px;}
+            #text_box { /*Todo: put in mixin(the below 2)*/
+                height:30px;
+                width:260px;
+                font-size:16px;
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D3D3D3', endColorstr='#FFFFFF'); /* for IE */
+                background:-webkit-linear-gradient(top, lightgrey, white);
+                background:-moz-linear-gradient(top, lightgrey, white);
+            }
+            #email_box {
+                height:30px;
+                width:260px;
+                font-size:16px;
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D3D3D3', endColorstr='#FFFFFF');
+                background:-webkit-linear-gradient(top, lightgrey, white);
+                background:-moz-linear-gradient(top, lightgrey, white);
+            }
+            #description {
+                vertical-align: text-top; 
+                width: 265px;
+                font-size:16px;
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D3D3D3', endColorstr='#FFFFFF');
+                background:-webkit-linear-gradient(top, lightgrey, white);
+                background:-moz-linear-gradient(top, lightgrey, white);
+            }
             .submit {}
         }
 
