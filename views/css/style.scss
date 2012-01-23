@@ -320,17 +320,21 @@ body#per_page{
                 height:30px;
                 width:260px;
                 font-size:16px;
+                text-indent:5px;
                 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D3D3D3', endColorstr='#FFFFFF'); /* for IE */
                 background:-webkit-linear-gradient(top, lightgrey, white);
                 background:-moz-linear-gradient(top, lightgrey, white);
+                border:none;
             }
             #email_box {
                 height:30px;
                 width:260px;
                 font-size:16px;
+                text-indent:5px;
                 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D3D3D3', endColorstr='#FFFFFF');
                 background:-webkit-linear-gradient(top, lightgrey, white);
                 background:-moz-linear-gradient(top, lightgrey, white);
+                border:none;
             }
             #description {
                 vertical-align: text-top; 
@@ -339,6 +343,7 @@ body#per_page{
                 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D3D3D3', endColorstr='#FFFFFF');
                 background:-webkit-linear-gradient(top, lightgrey, white);
                 background:-moz-linear-gradient(top, lightgrey, white);
+                border:none;
             }
             .submit {}
         }
@@ -386,6 +391,7 @@ body#per_page{
             text-align:left !important;
             font-size: 14px !important;
             color: $gray_color;
+            img {box-shadow: -15px -15px 10px;}
             p { text-indent: 1.5em; line-height:2.0em;}
             ul { list-style-type:none;}
             li {}
