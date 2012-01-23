@@ -313,6 +313,7 @@ body#per_page{
       
         form {
             #sign_mssg {color:$fadeout_gray; font-size:20px;}
+            .mssg {color:red; font-size:12px; margin-top:-20px; padding-right:25px;}
             label {font-size: 18px;}
             p.padded_email_box {padding-left:55px;}
             p.padded_text_box {padding-left: 4px;}
