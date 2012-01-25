@@ -44,7 +44,10 @@ describe "Test Email Feature" do
       mail.subject.should == 'hi'
       mail.body.should == 'Hello World!'
     end
-    Pony.mail(:to => 'test@test.com', :from => 'me@test.com', :subject => 'hi', :body => 'Hello World!')
+    Pony.mail  to: 'test@test.com',
+               from: 'me@test.com',
+               subject: 'hi',
+               body: 'Hello World!'
   end
   
   it "requires :to paramater to be initialized" do
@@ -55,8 +58,8 @@ end
 
 describe "User" do
 
-  before(:each) do 
-    @user = User.create(:email => 'jondoe@apple.com', :password => 'pass')
+  before(:each) do
+    @user = User.create(email: 'jondoe@apple.com', password: 'pass')
       #think of replacing w/ Fabricator or FactoryGirl
   end
   

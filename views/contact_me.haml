@@ -1,23 +1,22 @@
-%h4.italic Contact me by <span>completing</span> the form below. I will then get back to you shorlty.
+%h4.italic Drop a line by <span>completing</span> the form below, and I'll get back to you shortly!
 
-%form{:action => '/send_email', :method => :post}
-  #sign_mssg <u>Drop a Line</u>
+%form{action: '/send_email', method: :post}
   %p.padded_text_box
-    %label{:for => 'name'} <span>Your Name</span><span style='color:red;'>*</red>
-    %input{:type => 'textbox', :name => 'name', :id => 'text_box'}
+    %label{for: 'name'} <span>Your Name</span><span style='color:red;'>*</red>
+    %input{type: 'textbox', name: 'name', id: 'text_box'}
     .mssg= @mssg1
   %p.padded_email_box
-    %label{:for => 'email'} <span>Email</span><span style='color:red;'>*</red>
-    %input{:type => 'textbox', :name => 'email', :id => 'email_box'}
+    %label{for: 'email'} <span>Email</span><span style='color:red;'>*</red>
+    %input{type: 'textbox', name: 'email', id: 'email_box'}
     .mssg= @mssg2
   %p
-    %label{:for => 'description'} <span>Description</span>
-    %textarea{:name => 'description', :cols => '40', :rows => '6', :id => 'description'}
+    %label{for: 'description'} <span>Description</span>
+    %textarea{name: 'description', cols: '40', rows: '6', id: 'description'}
   %p.submit
-    %input{:type => 'submit', :value => 'Submit'}
+    %input{type: 'submit', class: 'submit bttn', value: 'Send'}
     
 #msg
-  %img{:src => '/images/loading.gif'}
+  %img{src: '/images/loading.gif'}
 
 :javascript
-  $('.submit').bind('click', function() { $('.submit').hide(); $('#msg').show(); });
+  //$('.submit').bind('click', function() { $('.submit').hide(); $('#msg').show(); });

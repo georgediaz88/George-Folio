@@ -60,9 +60,9 @@ module GeorgeFolio
         params_to << 'e2=t' if @email.blank?
         redirect to("/contact_me#{params_to}")
       else
-        Pony.mail  :to => 'georgediaz88@yahoo.com',
-                   :subject => "Message Sent From #{@name}",
-                   :body => "#{@description} --- sent from #{@email}"
+        Pony.mail  to: 'georgediaz88@yahoo.com',
+                   subject: "Message Sent From #{@name}",
+                   body: "#{@description} --- sent from #{@email}"
         haml :receipt_email #Show User Thank You Template
       end
 

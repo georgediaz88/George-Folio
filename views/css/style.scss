@@ -312,6 +312,7 @@ body#per_page{
         .italic {font-style:italic;}
       
         form {
+            padding-right:12px;
             #sign_mssg {color:$fadeout_gray; font-size:20px;}
             .mssg {color:red; font-size:12px; margin-top:-20px; padding-right:25px;}
             label {font-size: 18px;}
@@ -341,14 +342,32 @@ body#per_page{
                 vertical-align: text-top; 
                 width: 265px;
                 font-size:16px;
+                font-family:cursive;
                 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D3D3D3', endColorstr='#FFFFFF');
                 background:-webkit-linear-gradient(top, lightgrey, white);
                 background:-moz-linear-gradient(top, lightgrey, white);
                 border:none;
             }
-            .submit {
-              input[type=submit] {}
-            }
+            .submit.bttn {
+                font-family: fantasy;
+                color: #ffffff;
+                font-size: 20px;
+                padding: 10px;
+                margin-left:28px;
+                text-decoration: none;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -webkit-box-shadow: 0px 1px 3px #666666;
+                -moz-box-shadow: 0px 1px 3px #666666;
+                text-shadow: 0px 0px 3px #666666;
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000', endColorstr='#D3D3D3');
+                background: -webkit-gradient(linear, 0 0, 0 100%, from(#000), to(#D3D3D3));
+                background: -moz-linear-gradient(top, #000, #D3D3D3);
+              }
+              .submit.bttn:hover {
+                background: #000;
+              }
+
         }
 
         #home_header {
