@@ -316,7 +316,7 @@ body#per_page{
             #sign_mssg {color:$fadeout_gray; font-size:20px;}
             .mssg {color:red; font-size:12px; margin-top:-20px; padding-right:25px;}
             label {font-size: 18px;}
-            p.padded_email_box {padding-left:55px;}
+            p.padded_email_box {padding-left:53px;}
             p.padded_text_box {padding-left: 4px;}
             #text_box { /*Todo: put in mixin(the below 2)*/
                 height:30px;
@@ -326,7 +326,7 @@ body#per_page{
                 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D3D3D3', endColorstr='#FFFFFF'); /* for IE */
                 background:-webkit-linear-gradient(top, lightgrey, white);
                 background:-moz-linear-gradient(top, lightgrey, white);
-                border:none;
+                border: 1px inset #fff;
             }
             #email_box {
                 height:30px;
@@ -336,16 +336,17 @@ body#per_page{
                 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D3D3D3', endColorstr='#FFFFFF');
                 background:-webkit-linear-gradient(top, lightgrey, white);
                 background:-moz-linear-gradient(top, lightgrey, white);
-                border:none;
+                border: 1px inset #fff;
             }
             #description {
-                vertical-align: text-top; 
-                width: 265px;
+                vertical-align: text-top;
+                height:113px;
+                width:627px;
                 font-size:14px;
+                border: 1px inset #fff;
                 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D3D3D3', endColorstr='#FFFFFF');
                 background:-webkit-linear-gradient(top, lightgrey, white);
                 background:-moz-linear-gradient(top, lightgrey, white);
-                border:none;
             }
             .submit.bttn {
                 font-family: fantasy;
