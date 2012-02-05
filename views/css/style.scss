@@ -321,6 +321,7 @@ body#per_page{
             #text_box { /*Todo: put in mixin(the below 2)*/
                 height:30px;
                 width:260px;
+                margin-bottom:25px;
                 font-size:14px;
                 text-indent:5px;
                 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D3D3D3', endColorstr='#FFFFFF'); /* for IE */
@@ -331,6 +332,7 @@ body#per_page{
             #email_box {
                 height:30px;
                 width:260px;
+                margin-bottom:25px;
                 font-size:14px;
                 text-indent:5px;
                 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D3D3D3', endColorstr='#FFFFFF');
@@ -341,7 +343,7 @@ body#per_page{
             #description {
                 vertical-align: text-top;
                 height:113px;
-                width:627px;
+                width:582px;
                 font-size:14px;
                 border: 1px inset #fff;
                 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D3D3D3', endColorstr='#FFFFFF');
