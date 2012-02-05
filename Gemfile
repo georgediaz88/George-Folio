@@ -8,6 +8,8 @@ gem 'sass'
 gem 'pony'
 gem 'datamapper', '>= 1.1.0'
 gem 'twitter'
+gem 'therubyracer'
+gem 'barista'
 
 group :development do
   gem 'guard-rspec'

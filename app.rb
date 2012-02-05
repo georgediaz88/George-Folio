@@ -3,8 +3,9 @@ require 'data_mapper'
 
 module GeorgeFolio
   class MyApp < Sinatra::Base
-    
+
     configure do
+      register Barista::Integration::Sinatra
       %w{ /config/email_defaults /lib/user }.each {|file| require File.dirname(__FILE__) + file }      
     end
     
