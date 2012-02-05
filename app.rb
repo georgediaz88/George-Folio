@@ -26,7 +26,7 @@ module GeorgeFolio
     
     get '/application.js' do
       #binding.pry
-      coffee :application
+      coffee :'javascripts/application'
     end
     #########################################
 
