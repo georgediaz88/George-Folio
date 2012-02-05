@@ -56,14 +56,11 @@ module GeorgeFolio
 
     post '/send_email' do
       @name, @email, @description = params[:name], params[:email], params[:description] #params retrieved from form
-      
+
       if @name.blank? && @email.blank?
         redirect to('/contact_me?e1=t&e2=t')
       elsif @name.blank? || @email.blank?
-        params_to = '?'
-        params_to << 'e1=t' if @name.blank?
-        params_to << 'e2=t' if @email.blank?
-        redirect to("/contact_me#{params_to}")
+        setup_params(@name, @email)
       else
         Pony.mail  to: 'georgediaz88@yahoo.com',
                    subject: "Message Sent From #{@name}",
@@ -87,6 +84,15 @@ module GeorgeFolio
       end
     end
     ###################################
+    
+    private
+    
+    def setup_params(name, email)
+      params_to = '?'
+      params_to << 'e1=t' if name.blank?
+      params_to << 'e2=t' if email.blank?
+      redirect to("/contact_me#{params_to}")
+    end
 
   end
 end
