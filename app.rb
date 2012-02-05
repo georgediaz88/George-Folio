@@ -1,12 +1,13 @@
 require 'pony'
 require 'data_mapper'
+require 'barista'
 
 module GeorgeFolio
   class MyApp < Sinatra::Base
 
     configure do
       register Barista::Integration::Sinatra
-      %w{ /config/email_defaults /lib/user }.each {|file| require File.dirname(__FILE__) + file }      
+      %w{ /config/email_defaults /lib/user }.each {|file| require File.dirname(__FILE__) + file }
     end
     
     configure(:development,:production) do
@@ -19,7 +20,7 @@ module GeorgeFolio
       include ApplicationHelper
     end
 
-    ######### re-route css to sass templating
+    ######### re-route to sass and coffee
     get '/style.css' do
       scss :'css/style'
     end
@@ -55,7 +56,9 @@ module GeorgeFolio
     end
 
     post '/send_email' do
-      @name, @email, @description = params[:name], params[:email], params[:description] #params retrieved from form
+      @name, @email, @description = params[:name], 
+                                    params[:email], 
+                                    params[:description]
 
       if @name.blank? && @email.blank?
         redirect to('/contact_me?e1=t&e2=t')
@@ -86,7 +89,7 @@ module GeorgeFolio
     ###################################
     
     private
-    
+
     def setup_params(name, email)
       params_to = '?'
       params_to << 'e1=t' if name.blank?
