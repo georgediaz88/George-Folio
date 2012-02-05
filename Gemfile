@@ -3,6 +3,7 @@ source :rubygems
 gem 'sinatra'
 gem 'heroku'
 gem 'haml'
+gem 'coffee-script'
 gem 'sass'
 gem 'pony'
 gem 'datamapper', '>= 1.1.0'

@@ -1,6 +1,6 @@
 %h4.italic Drop a line by <span>completing</span> the form below, and I'll get back to you shortly!
 
-%form{action: '/send_email', method: :post}
+%form{action: '/send_email', method: :post, class: 'contact_form'}
   %p.padded_text_box
     %label{for: 'name'} <span>Your Name</span><span style='color:red;'>*</red>
     %input{type: 'textbox', name: 'name', id: 'text_box'}
@@ -17,6 +17,3 @@
     
 #msg
   %img{src: '/images/loading.gif'}
-
-:javascript
-  //$('.submit').bind('click', function() { $('.submit').hide(); $('#msg').show(); });

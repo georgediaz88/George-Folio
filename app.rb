@@ -22,6 +22,11 @@ module GeorgeFolio
     get '/style.css' do
       scss :'css/style'
     end
+    
+    get '/application.js' do
+      #binding.pry
+      coffee :application
+    end
     #########################################
 
     #HTTP calls
@@ -50,22 +55,22 @@ module GeorgeFolio
     end
 
     post '/send_email' do
-      @name, @email, @description = params[:name], params[:email], params[:description] #params retrieved from form
-
-      if @name.blank? && @email.blank?
-        redirect to('/contact_me?e1=t&e2=t')
-      elsif @name.blank? || @email.blank?
-        params_to = '?'
-        params_to << 'e1=t' if @name.blank?
-        params_to << 'e2=t' if @email.blank?
-        redirect to("/contact_me#{params_to}")
-      else
-        Pony.mail  to: 'georgediaz88@yahoo.com',
-                   subject: "Message Sent From #{@name}",
-                   body: "#{@description} --- sent from #{@email}"
-        haml :receipt_email #Show User Thank You Template
-      end
-
+      # @name, @email, @description = params[:name], params[:email], params[:description] #params retrieved from form
+      # 
+      # if @name.blank? && @email.blank?
+      #   redirect to('/contact_me?e1=t&e2=t')
+      # elsif @name.blank? || @email.blank?
+      #   params_to = '?'
+      #   params_to << 'e1=t' if @name.blank?
+      #   params_to << 'e2=t' if @email.blank?
+      #   redirect to("/contact_me#{params_to}")
+      # else
+      #   Pony.mail  to: 'georgediaz88@yahoo.com',
+      #              subject: "Message Sent From #{@name}",
+      #              body: "#{@description} --- sent from #{@email}"
+      #   haml :receipt_email #Show User Thank You Template
+      # end
+      redirect to('/')
     end
 
 ##Tweet
