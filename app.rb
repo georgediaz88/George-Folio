@@ -28,7 +28,7 @@ module GeorgeFolio
     get '/application.js' do
       coffee :'javascripts/application'
     end
-    #########################################
+    #####################################
 
     #HTTP calls
     get '/' do

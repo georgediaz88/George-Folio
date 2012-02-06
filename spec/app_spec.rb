@@ -14,9 +14,9 @@ describe "My Sites Pages" do
     last_response.body.should match(/George's Portfolio/)
   end
   
-  it "should respond successfuly to About Me page" do
+  it "should see About Me on Top" do
     get '/about_me'
-    last_response.should be_ok
+    last_response.body.should match(/About Me/)
   end
   
   it "should respond successfuly to My Work page" do
@@ -44,6 +44,13 @@ describe "Test Email Feature" do
       mail.subject.should == 'hi'
       mail.body.should == 'Hello World!'
     end
+ 
+    # visit '/contact_me'
+    # fill_in 'name', :with => 'Jon Doe'
+    # fill_in 'email', :with => 'test@test.com'
+    # fill_in 'description', :with => 'Hello World!'
+    # click_button 'Send'
+
     Pony.mail  to: 'test@test.com',
                from: 'me@test.com',
                subject: 'hi',
