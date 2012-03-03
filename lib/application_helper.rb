@@ -16,7 +16,7 @@ module ApplicationHelper
   end
   
   def link_up(tweet)
-    html_pass = tweet.gsub(/(http:?\/\/[\S]+)/, %Q{<a href='\\1'>\\1</a>})
+    html_pass = tweet.gsub(/((http|https):?\/\/[\S]+)/, %Q{<a href='\\1'>\\1</a>})
     tag_pass = html_pass.gsub(/@([\w]+)/, %Q{<a href='https://twitter.com/#!/\\1'>@\\1</a>} )
   end
 
