@@ -314,7 +314,8 @@ body#per_page{
         form {
             padding-right:12px;
             #sign_mssg {color:$fadeout_gray; font-size:20px;}
-            .mssg {color:red; font-size:12px; margin-top:-20px; padding-right:25px;}
+            .mssg {color:red; font-size:12px; margin-top:-20px; padding-left:50px;}
+            .mssg_description {color:red; font-size:12px; padding-left:50px;}
             label {font-size: 18px;}
             p.padded_email_box {padding-left:53px;}
             p.padded_text_box {padding-left: 4px;}
@@ -355,8 +356,7 @@ body#per_page{
                 color: #ffffff;
                 font-size: 20px;
                 padding: 10px;
-                margin-left:28px;
-                text-decoration: none;
+                margin-left:50px;
                 -webkit-border-radius: 10px;
                 -moz-border-radius: 10px;
                 -webkit-box-shadow: 0px 1px 3px #666666;

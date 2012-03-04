@@ -7,7 +7,7 @@ module GeorgeFolio
 
     configure do
       register Barista::Integration::Sinatra
-      %w{ /config/email_defaults /lib/user }.each {|file| require File.dirname(__FILE__) + file }
+      %w{ /config/email_defaults /lib/user /lib/contact }.each {|file| require File.dirname(__FILE__) + file }
     end
     
     configure(:development,:production) do
@@ -53,19 +53,17 @@ module GeorgeFolio
 
     post '/send_email' do
       @contact = Contact.new(name: params[:name], email: params[:email], description: params[:description])
-
       if @contact.valid?
         Pony.mail  to: 'georgediaz88@yahoo.com',
                    subject: "Message Sent From #{@contact.name}",
                    body: "#{@contact.description} --- sent from #{@contact.email}"
-
         haml :receipt_email #Show User Thank You Template
-
       else
-        @msg1, @msg2 = @contact.errors[:name][0], @contact.errors[:email][0]
+        @msg1 = @contact.errors[:name][0]
+        @msg2 = @contact.errors[:email][0]
+        @msg3 = @contact.errors[:description][0]
         haml :contact_me
       end
-
     end
 
     ######### Tweet Section ##########

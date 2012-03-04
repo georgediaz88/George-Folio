@@ -10,8 +10,9 @@
     %input{type: 'textbox', name: 'email', id: 'email_box'}
     .mssg= @msg2
   %p
-    %label{for: 'description'} <span>Description</span>
+    %label{for: 'description'} <span>Description</span><span style='color:red;'>*</span>
     %textarea{name: 'description', cols: '40', rows: '6', id: 'description'}
+    .mssg_description= @msg3
   %p.submit
     %input{type: 'submit', class: 'submit bttn', value: 'Send'}
     
