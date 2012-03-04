@@ -10,6 +10,7 @@ gem 'datamapper', '>= 1.1.0'
 gem 'twitter'
 gem 'therubyracer'
 gem 'barista'
+gem 'active_attr'
 
 group :development do
   gem 'guard-rspec'

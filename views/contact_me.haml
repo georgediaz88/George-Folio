@@ -2,13 +2,13 @@
 
 %form{action: '/send_email', method: :post, class: 'contact_form'}
   %p.padded_text_box
-    %label{for: 'name'} <span>Your Name</span><span style='color:red;'>*</red>
+    %label{for: 'name'} <span>Your Name</span><span style='color:red;'>*</span>
     %input{type: 'textbox', name: 'name', id: 'text_box'}
-    .mssg= @mssg1
+    .mssg= @msg1
   %p.padded_email_box
-    %label{for: 'email'} <span>Email</span><span style='color:red;'>*</red>
+    %label{for: 'email'} <span>Email</span><span style='color:red;'>*</span>
     %input{type: 'textbox', name: 'email', id: 'email_box'}
-    .mssg= @mssg2
+    .mssg= @msg2
   %p
     %label{for: 'description'} <span>Description</span>
     %textarea{name: 'description', cols: '40', rows: '6', id: 'description'}

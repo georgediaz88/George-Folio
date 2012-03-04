@@ -48,28 +48,24 @@ module GeorgeFolio
 
     get '/contact_me' do
       @title = 'Contact Me'
-
-      @mssg1 = 'cant be blank' if params[:e1] #name error
-      @mssg2 = 'cant be blank' if params[:e2] #email error
-
       haml :contact_me
     end
 
     post '/send_email' do
-      @name, @email, @description = params[:name], 
-                                    params[:email], 
-                                    params[:description]
+      @contact = Contact.new(name: params[:name], email: params[:email], description: params[:description])
 
-      if @name.blank? && @email.blank?
-        redirect to('/contact_me?e1=t&e2=t')
-      elsif @name.blank? || @email.blank?
-        setup_params(@name, @email)
-      else
+      if @contact.valid?
         Pony.mail  to: 'georgediaz88@yahoo.com',
-                   subject: "Message Sent From #{@name}",
-                   body: "#{@description} --- sent from #{@email}"
+                   subject: "Message Sent From #{@contact.name}",
+                   body: "#{@contact.description} --- sent from #{@contact.email}"
+
         haml :receipt_email #Show User Thank You Template
+
+      else
+        @msg1, @msg2 = @contact.errors[:name][0], @contact.errors[:email][0]
+        haml :contact_me
       end
+
     end
 
     ######### Tweet Section ##########
@@ -87,15 +83,6 @@ module GeorgeFolio
       end
     end
     ###################################
-    
-    private
-
-    def setup_params(name, email)
-      params_to = '?'
-      params_to << 'e1=t' if name.blank?
-      params_to << 'e2=t' if email.blank?
-      redirect to("/contact_me#{params_to}")
-    end
 
   end
 end
