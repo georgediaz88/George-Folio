@@ -3,6 +3,7 @@
   %head
     %title= @title || "George's Portfolio"
     %link{:rel=>'stylesheet', :media=>'screen, projection', :href=>'/style.css'}
+    %meta{:name=> 'viewport', :content=> 'user-scalable=no, width=device-width'}
     %script{:type=>'text/javascript', :src=>'https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'}
     %script{:type=>'text/javascript', :src=>'/application.js'}
   
@@ -32,6 +33,5 @@
               %a{:href => 'http://www.linkedin.com/pub/george-diaz/20/89/615', :target => '_blank'}
                 %img{:src => '/images/linked_in_small.png', :height => '50px', :width => '50px'}
         = yield
-        #footer_email 
-          //Let's Talk? Email Me at: <a href='mailto:georgediaz88@yahoo.com'>georgediaz88@yahoo.com</a>
 
+        #footer_email

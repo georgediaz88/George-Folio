@@ -2,11 +2,19 @@ $standout_green: DarkSeaGreen;
 $fadeout_gray: DarkGrey;
 $gray_color: Grey;
 
-/* 
-	Resets defualt browser settings
-	reset.css
-*/
+/*@media only screen and (max-width: 600px) {
+  body { padding:0 !important;}
+  #wrapper { width:90% !important; }
+  #containter {width:90% !important;}
+  #description {width:60% !important;}
+  #container #example {display:none;}
+  #pagewrap #my_work img {display:none;}
+  #home_image {width:auto;box-shadow:none !important; height:375px !important; width:390px !important;}
+  .facebook {display:none;}/*right:-16% !important; top:3.4% !important; position:absolute !important;}*/
+/*  .linked_in {display:none;}
+}*/
 
+/*@media screen and (min-width:601px) {}*/
 
 iframe,.text,caption { margin:0; padding:0; border:0; outline:0; font-weight:inherit !important; font-style:inherit !important; font-size:50% !important; font-family:inherit !important; vertical-align:baseline; text-align:left !important; }
 
@@ -241,9 +249,10 @@ body#per_page{
     }
 
     #pagewrap {
-        //height: 811px; this adds height to every page
-        background-color:WhiteSmoke;
         // font-family: helvetica,arial,sans-serif;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7f7f7', endColorstr='#d7d7d7');
+        background:-webkit-linear-gradient(top, #f7f7f7, #d7d7d7);
+        background:-moz-linear-gradient(top, #f7f7f7, #d7d7d7);
         font-size: 24px;
         text-transform: uppercase;
         text-align: center;
@@ -286,6 +295,8 @@ body#per_page{
             padding-top: 18px;
             color:$fadeout_gray;
             box-shadow: -4px 15px 25px #888888;
+            text-shadow: 0px 1px 1px #c5c5c5;
+            border-radius:8px;
             -ms-transition:-ms-transform 2s;
             -moz-transition:-moz-transform 2s; /* Firefox 4 */
             -webkit-transition:-webkit-transform 2s; /* Safari and Chrome */
@@ -373,8 +384,11 @@ body#per_page{
         }
 
         #home_header {
-          //text-align:left !important;
-          #home_name {}
+          #home_name {
+              box-shadow: -4px 15px 25px #888888;
+              text-shadow: 0px 1px 1px #c5c5c5;
+              border-radius:8px;
+          }
         }
 
         #home_image {
@@ -382,7 +396,7 @@ body#per_page{
             margin:auto;
             height:387px;
             width:439px;
-            box-shadow: -50px 18px 15px #888888;
+            box-shadow: 30px 15px 15px #888888;
         }
 
         .about_me_pic {
@@ -426,3 +440,4 @@ body#per_page{
         }      
     }
 }
+
