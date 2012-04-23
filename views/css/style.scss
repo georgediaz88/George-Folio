@@ -277,15 +277,20 @@ body#per_page{
               .facebook { 
                   position:fixed;
                   width:8em;
-                  margin-left: 786px;
+                  margin-left: 790px;
                   a:link, a:visited {color:transparent;}
                }
               .linked_in { 
                   position:fixed;
                   width:8em;
                   margin-top: 2.5em;
-                  margin-left: 780px;
+                  margin-left: 790px;
                   a:link, a:visited {color:transparent;}
+              }
+              img {
+                background-color:lightgrey;
+                padding:2px;
+                border-right:1px solid #000;
               }
           }
         }
