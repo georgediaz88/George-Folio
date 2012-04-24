@@ -1,6 +1,7 @@
 require 'sinatra'
-require File.join(File.dirname(__FILE__), '..', 'app')
 require 'bundler/setup'
+require 'active_attr'
+require File.join(File.dirname(__FILE__), '..', 'app')
 require 'rack/test'
 require 'test/unit'
 require 'capybara/rspec'
