@@ -249,10 +249,7 @@ body#per_page{
     }
 
     #pagewrap {
-        // font-family: helvetica,arial,sans-serif;
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7f7f7', endColorstr='#d7d7d7');
-        background:-webkit-linear-gradient(top, #f7f7f7, #d7d7d7);
-        background:-moz-linear-gradient(top, #f7f7f7, #d7d7d7);
+        background-color:whitesmoke;
         font-size: 24px;
         text-transform: uppercase;
         text-align: center;
