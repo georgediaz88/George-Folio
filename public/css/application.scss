@@ -146,6 +146,7 @@ body#per_page{
         .home_wording {
             padding-top: 18px;
             color:$fadeout_gray;
+            -webkit-box-shadow: -4px 15px 25px #888888;
             box-shadow: -4px 15px 25px #888888;
             text-shadow: 0px 1px 1px #c5c5c5;
             border-radius:8px;
@@ -233,6 +234,7 @@ body#per_page{
 
         #home_header {
           #home_name {
+              -webkit-box-shadow: -4px 15px 25px #888888;
               box-shadow: -4px 15px 25px #888888;
               text-shadow: 0px 1px 1px #c5c5c5;
               border-radius:8px;
@@ -244,6 +246,7 @@ body#per_page{
             margin:auto;
             height:387px;
             width:439px;
+            -webkit-box-shadow: 30px 15px 15px #888888;
             box-shadow: 30px 15px 15px #888888;
         }
 
