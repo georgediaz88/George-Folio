@@ -11,7 +11,7 @@
     .mssg= @msg2
   %p
     %label{for: 'description'} <span>Description</span><span style='color:red;'>*</span>
-    %textarea{name: 'description', cols: '40', rows: '6', id: 'description'}
+    %textarea{name: 'description', cols: '40', rows: '6', id: 'description', placeholder: 'Tell me something...'}
     .mssg_description= @msg3
   %p.submit
     %input{type: 'submit', class: 'submit bttn', value: 'Send'}

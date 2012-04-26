@@ -1,185 +1,25 @@
+/* application.scss */
+
+@import 'slides';
+
 $standout_green: DarkSeaGreen;
 $fadeout_gray: DarkGrey;
 $gray_color: Grey;
 
-/*@media only screen and (max-width: 600px) {
+/*
+  @media screen and (min-width:601px) {}
+  Responsive Mobile
+*/
+
+@media only screen and (max-width: 600px) {
   body { padding:0 !important;}
   #wrapper { width:90% !important; }
-  #containter {width:90% !important;}
+  #container {display:none;}
   #description {width:60% !important;}
-  #container #example {display:none;}
-  #pagewrap #my_work img {display:none;}
-  #home_image {width:auto;box-shadow:none !important; height:375px !important; width:390px !important;}
-  .facebook {display:none;} right:-16% !important; top:3.4% !important; position:absolute !important;}
+  #pagewrap #my_work .bsphere, #pagewrap #my_work .sinatra {width:185px;}
+  #home_image {width:auto; height:375px !important; width:390px !important;}
+  .facebook {display:none;}
   .linked_in {display:none;}
-}*/
-
-/*@media screen and (min-width:601px) {}*/
-
-iframe,.text,caption { margin:0; padding:0; border:0; outline:0; font-weight:inherit !important; font-style:inherit !important; font-size:50% !important; font-family:inherit !important; vertical-align:baseline; text-align:left !important; }
-
-
-:focus { outline:0; }
-a:active { outline:none; }
-body { line-height:1; color:black; background:white; }
-ol,ul { list-style:none; }
-table { border-collapse:separate; border-spacing:0; }
-caption,th,td { text-align:left; font-weight:normal; }
-blockquote:before,blockquote:after,q:before,q:after { content:""; }
-blockquote,q { quotes:"" ""; }
-
-/*
-	Page style
-*/
-body { 
-	font:normal 62.5%/1.5 Helvetica, Arial, sans-serif;
-	letter-spacing:0;
-	color:#434343;
-	/*background:#efefef url(../img/background.png) repeat top center;*/
-	padding:20px 0;
-	position:relative;
-	text-shadow:0 1px 0 rgba(255,255,255,.8);
-	-webkit-font-smoothing: subpixel-antialiased;
-}
-
-#container {
-	width:580px;
-	padding:10px;
-	margin:0 auto;
-	position:relative;
-	z-index:0;
-}
-
-#example {
-	width:600px;
-	height:350px;
-	position:relative;
-}
-
-#ribbon {
-	position:absolute;
-	top:-3px;
-	left:-15px;
-	z-index:500;
-}
-
-#frame {
-	position:absolute;
-	z-index:0;
-	width:739px;
-	height:341px;
-	top:-3px;
-	left:-80px;
-}
-
-/*
-	Slideshow
-*/
-
-#slides {
-	position:absolute;
-	top:15px;
-	left:4px;
-	z-index:100;
-	a:link, a:visited {color:transparent;}
-}
-
-/*
-	Slides container
-	Important:
-	Set the width of your slides container
-	Set to display none, prevents content flash
-*/
-
-.slides_container {
-	width:570px;
-	overflow:hidden;
-	position:relative;
-	display:none;
-}
-
-/*
-	Each slide
-	Important:
-	Set the width of your slides
-	If height not specified height will be set by the slide content
-	Set to display block
-*/
-
-.slides_container div.slide {
-	width:570px;
-	height:270px;
-	display:block;
-}
-
-
-/*
-	Next/prev buttons
-*/
-
-#slides .next,#slides .prev {
-	position:absolute;
-	top:107px;
-	left:-39px;
-	width:24px;
-	height:43px;
-	display:block;
-	z-index:101;
-}
-
-#slides .next {
-	left:585px;
-}
-
-/*
-	Pagination
-*/
-
-.pagination {
-	margin:26px auto 0;
-	width:100px;
-}
-
-.pagination li {
-	float:left;
-	margin:0 1px;
-	list-style:none;
-}
-
-.pagination li a {
-	display:block;
-	width:12px;
-	height:0;
-	padding-top:12px;
-	background-image:url(../images/slides/pagination.png);
-	background-position:0 0;
-	float:left;
-	overflow:hidden;
-}
-
-.pagination li.current a {
-	background-position:0 -12px;
-}
-
-/*
-	Caption
-*/
-
-.caption {
-	z-index:500;
-	position:absolute;
-	bottom:-35px;
-	left:0;
-	height:30px;
-	padding:5px 20px 0 20px;
-	background:#000;
-	background:rgba(0,0,0,.5);
-	width:540px;
-	font-size:1.3em;
-	line-height:1.33;
-	color:#fff;
-	border-top:1px solid #000;
-	text-shadow:none;
 }
 
 /*
@@ -201,17 +41,27 @@ body {
 
 /*
 	Anchors
-
 */
+
 a:link, a:visited {
 	color:SteelBlue;
 }
 
 
-
 /* 
-#######################################################################
+  Modeled body from slides' body
 */
+
+body { 
+	font:normal 62.5%/1.5 Helvetica, Arial, sans-serif;
+	letter-spacing:0;
+	color:#434343;
+	padding:20px 0;
+	position:relative;
+	text-shadow:0 1px 0 rgba(255,255,255,.8);
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
 body#per_page{
 
     background-color:#2C2C29;
@@ -427,11 +277,16 @@ body#per_page{
             text-align:left !important;
             font-size: 14px !important;
             color: $gray_color;
-            img {
-/*                -moz-box-shadow: -15px 20px 10px #888;
-                -webkit-box-shadow: -15px 20px 10px #888;
-                box-shadow: -15px 20px 10px #888;*/
+            .bsphere {
+                float:left;
+                padding-right:8px;
+                position:relative;
+                bottom:-8px;
             }
+            .sinatra {
+                float:right;
+            }
+            /*img { box-shadow: -15px 20px 10px #888; }*/
             p { text-indent: 1.5em; line-height:2.0em;}
             ul { list-style-type:none;}
             li {}

@@ -6,8 +6,8 @@ class User
 
   include DataMapper::Resource
   property :id, Serial
-  property :email, Text, :required => true
-  property :hashed_password, Text #, :default => false
+  property :email, Text, required:true
+  property :hashed_password, Text #, default: true
   
   before :save, :encrypt_password
 
