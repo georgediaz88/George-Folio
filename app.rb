@@ -1,12 +1,10 @@
 require 'pony'
 require 'data_mapper'
-require 'barista'
 
 module GeorgeFolio
   class MyApp < Sinatra::Base
 
     configure do
-      register Barista::Integration::Sinatra
       %w{ /config/email_defaults /lib/user /lib/contact }.each {|file| require File.dirname(__FILE__) + file }
     end
     
@@ -20,14 +18,17 @@ module GeorgeFolio
       include ApplicationHelper
     end
 
-    ######### re-route to sass and coffee
-    get '/style.css' do
-      scss :'css/style'
+    ######### re-route for sass / possibly coffee?
+    get '/css/*.css' do
+      file_name = params[:splat].first
+      file_path = "../public/css/#{file_name}"
+      scss "#{file_path}".to_sym
     end
-    
-    get '/application.js' do
-      coffee :'javascripts/application'
-    end
+
+    # get '/application.js' do
+    #   coffee :'javascripts/application'
+    # end
+
     #####################################
 
     #HTTP calls
