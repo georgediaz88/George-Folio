@@ -11,13 +11,13 @@ $gray_color: Grey;
   Responsive Mobile
 */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 580px) and (max-width: 600px) {
   body { padding:0 !important;}
   #wrapper { width:90% !important; }
   #container {display:none;}
   #description {width:60% !important;}
   #pagewrap #my_work .bsphere, #pagewrap #my_work .sinatra {width:185px;}
-  #home_image {width:auto; height:375px !important; width:390px !important;}
+  #home_image {width:auto; height:387px !important; width:380px !important;}
   .facebook {display:none;}
   .linked_in {display:none;}
 }
@@ -82,7 +82,6 @@ body#per_page{
         text-transform: uppercase;
         #subheader {
             font-size:12px;
-            // display:block;
             height: 20px;
             margin: -20px 0 0 -35px;
             #menu {
@@ -121,23 +120,27 @@ body#per_page{
 
         #social_media {
           #contact_methods {
-              .facebook { 
-                  position:fixed;
+              ul {
+                margin:0;
+                li.facebook {
+                  position:absolute;
                   width:8em;
-                  margin-left: 790px;
+                  margin-left: 750px;
                   a:link, a:visited {color:transparent;}
-               }
-              .linked_in { 
-                  position:fixed;
+                  
+                }
+                li.linked_in {
+                  position:absolute;
                   width:8em;
-                  margin-top: 2.5em;
-                  margin-left: 790px;
+                  margin-top: 2.75em;
+                  margin-left: 750px;
                   a:link, a:visited {color:transparent;}
-              }
-              img {
-                background-color:lightgrey;
-                padding:2px;
-                border-right:1px solid #000;
+                }
+                img {
+                  background-color:whitesmoke;
+                  padding:4px;
+                  border-right:1px solid #000;
+                }
               }
           }
         }
@@ -245,9 +248,9 @@ body#per_page{
             background:url("/images/profile_pic.png") 0 0 no-repeat;
             margin:auto;
             height:387px;
-            width:439px;
-            -webkit-box-shadow: 30px 15px 15px #888888;
-            box-shadow: 30px 15px 15px #888888;
+            width:380px;
+            -webkit-box-shadow: 15px 10px 8px #888888;
+            box-shadow: 15px 10px 8px #888888;
         }
 
         .about_me_pic {
