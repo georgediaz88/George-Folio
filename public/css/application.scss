@@ -7,12 +7,19 @@ $fadeout_gray: DarkGrey;
 $gray_color: Grey;
 
 /*
-  @media screen and (min-width:601px) {}
   Responsive Mobile
+
+  Landscape smart phone
+  @media (min-width: 321px) and (max-width: 480px)
+
+  Portrait smart phone
+  @media (max-width: 320px)
+
+  *Kindle Max Width is 600px*
 */
 
-@media only screen and (min-width: 580px) and (max-width: 600px) {
-  body { padding:0 !important;}
+@media (min-width: 481px) and (max-width: 768px) {
+  body { padding:auto !important;}
   #wrapper { width:90% !important; }
   #container {display:none;}
   #description {width:60% !important;}
@@ -147,7 +154,7 @@ body#per_page{
         
 
         .home_wording {
-            padding-top: 18px;
+            padding-top: 8px;
             color:$fadeout_gray;
             -webkit-box-shadow: -4px 15px 25px #888888;
             box-shadow: -4px 15px 25px #888888;
@@ -253,6 +260,13 @@ body#per_page{
             box-shadow: 15px 10px 8px #888888;
         }
 
+        .twitter_feed_title {
+            margin-top:24px;
+            font-weight:bold;
+            font-size:28px;
+            text-shadow:0 1px 1px #C5C5C5;
+        }
+
         .about_me_pic {
             background:url("/images/cake.png") 0 0 no-repeat;
             margin: auto;
@@ -287,8 +301,6 @@ body#per_page{
             .bsphere {
                 float:left;
                 padding-right:8px;
-                position:relative;
-                bottom:-8px;
             }
             .sinatra {
                 float:right;

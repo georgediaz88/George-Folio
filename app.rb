@@ -33,7 +33,7 @@ module GeorgeFolio
 
     #HTTP calls
     get '/' do
-      @last_tweet = Twitter.user_timeline.first
+      @latest_tweets = Twitter.user_timeline[0..1]
       haml :index
     end
 
