@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'bundler/setup'
 require 'active_attr'
+require 'twitter'
+require 'haml'
 require File.join(File.dirname(__FILE__), '..', 'app')
 require 'rack/test'
 require 'test/unit'

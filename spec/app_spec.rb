@@ -2,14 +2,17 @@ require 'spec_helper'
 
 describe "My Sites Pages" do
 
+  before(:each) do
+    Twitter.stub!(:configure).and_return true
+    Twitter.stub!(:user_timeline).and_return([])
+  end
+
   it "should respond successfuly to homepage" do
-    pending("Research Twitter API call")
     get '/'
     last_response.should be_ok
   end
   
   it "should persist homepage text name" do
-    pending("Dependent on Twitter Fix")
     get '/'
     last_response.body.should match(/George's Portfolio/)
   end
