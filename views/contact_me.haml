@@ -1,18 +1,24 @@
 %h4 Drop a line by <span>completing</span> the form below, and I'll get back to you shortly!
 
+- if @contact.errors.any?
+  .er_msg
+    %ul
+      - @contact.errors.full_messages.each do |msg|
+        %li= msg
+
 %form{action: '/send_email', method: :post, class: 'contact_form'}
   %p.padded_text_box
     %label{for: 'name'} <span>Your Name</span><span style='color:red;'>*</span>
-    %input{type: 'textbox', name: 'name', id: 'text_box'}
-    .mssg= @msg1
+    %input{type: 'textbox', name: 'contact[name]', id: 'text_box', value:@contact.name}
+
   %p.padded_email_box
     %label{for: 'email'} <span>Email</span><span style='color:red;'>*</span>
-    %input{type: 'textbox', name: 'email', id: 'email_box'}
-    .mssg= @msg2
+    %input{type: 'textbox', name: 'contact[email]', id: 'email_box', value:@contact.email}
+
   %p
     %label{for: 'description'} <span>Description</span><span style='color:red;'>*</span>
-    %textarea{name: 'description', cols: '40', rows: '6', id: 'description', placeholder: 'Tell me something...'}
-    .mssg_description= @msg3
+    %textarea{name: 'contact[description]', cols: '40', rows: '6', id: 'description', placeholder: 'Tell me something...', value:@contact.description}
+
   %p.submit
     %input{type: 'submit', class: 'submit bttn', value: 'Send'}
     

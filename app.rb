@@ -48,21 +48,19 @@ module GeorgeFolio
     end
 
     get '/contact_me' do
-      @title = 'Contact Me'
+      @title   = 'Contact Me'
+      @contact = Contact.new(name: params[:name], email: params[:email], description: params[:description])
       haml :contact_me
     end
 
     post '/send_email' do
-      @contact = Contact.new(name: params[:name], email: params[:email], description: params[:description])
+      @contact = Contact.new(params[:contact])
       if @contact.valid?
         Pony.mail  to: 'georgediaz88@yahoo.com',
                    subject: "Message Sent From #{@contact.name}",
                    body: "#{@contact.description} --- sent from #{@contact.email}"
         haml :receipt_email #Show User Thank You Template
       else
-        @msg1 = @contact.errors[:name][0]
-        @msg2 = @contact.errors[:email][0]
-        @msg3 = @contact.errors[:description][0]
         haml :contact_me
       end
     end
