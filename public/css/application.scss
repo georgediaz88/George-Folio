@@ -25,8 +25,8 @@ $gray_color: Grey;
   #description {width:60% !important;}
   #pagewrap #my_work .bsphere, #pagewrap #my_work .sinatra {width:185px;}
   #home_image {width:auto; height:387px !important; width:380px !important;}
-/*  .facebook {display:none;}
-  .linked_in {display:none;}*/
+  .facebook {display:none;}
+  .linked_in {display:none;}
 }
 
 /*
@@ -105,7 +105,6 @@ body#per_page{
     }
 
     #pagewrap {
-        position:relative;
         background-color:whitesmoke;
         font-size: 24px;
         text-transform: uppercase;
@@ -132,21 +131,22 @@ body#per_page{
                 margin:0;
                 li.facebook {
                   position:absolute;
-                  right:0;
+                  width:8em;
+                  margin-left: 750px;
                   a:link, a:visited {color:transparent;}
                   
                 }
                 li.linked_in {
                   position:absolute;
+                  width:8em;
                   margin-top: 2.75em;
-                  right:0;
+                  margin-left: 750px;
                   a:link, a:visited {color:transparent;}
                 }
                 img {
                   background-color:whitesmoke;
                   padding:4px;
                   border-right:1px solid #000;
-                  position:fixed;
                 }
               }
           }
