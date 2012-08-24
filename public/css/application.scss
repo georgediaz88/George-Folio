@@ -106,6 +106,7 @@ body#per_page{
 
     #pagewrap {
         background-color:whitesmoke;
+        position:relative;
         font-size: 24px;
         text-transform: uppercase;
         text-align: center;
@@ -131,22 +132,22 @@ body#per_page{
                 margin:0;
                 li.facebook {
                   position:absolute;
+                  top:100px;
+                  left:-125px;
                   width:8em;
-                  margin-left: 750px;
                   a:link, a:visited {color:transparent;}
                   
                 }
                 li.linked_in {
                   position:absolute;
-                  width:8em;
-                  margin-top: 2.75em;
-                  margin-left: 750px;
+                  left:-68px;
+                  top:8px;
                   a:link, a:visited {color:transparent;}
                 }
                 img {
                   background-color:whitesmoke;
                   padding:4px;
-                  border-right:1px solid #000;
+                  border:10px solid #595454;
                 }
               }
           }
@@ -155,10 +156,10 @@ body#per_page{
 
         .home_wording {
             padding-top: 8px;
-            color:$fadeout_gray;
+            color:#595454;
             -webkit-box-shadow: -4px 15px 25px #888888;
             box-shadow: -4px 15px 25px #888888;
-            text-shadow: 0px 1px 1px #c5c5c5;
+            text-shadow: 0px 2px 1px #c5c5c5;
             border-radius:8px;
             -ms-transition:-ms-transform 2s;
             -moz-transition:-moz-transform 2s; /* Firefox 4 */
