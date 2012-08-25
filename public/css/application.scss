@@ -27,7 +27,7 @@ $gray_color: Grey;
   #home_image {width:auto; height:387px !important; width:380px !important;}
   .twitter {display:none;}
   .linked_in {display:none;}
-  ul.twitter_feed_title {margin:5% 0 0 15% !important; width:55% !important;}
+/*  ul.twitter_feed_title {margin:5% 0 0 0% !important; width:65% !important;}*/
 }
 
 /*
@@ -261,21 +261,19 @@ body#per_page{
             box-shadow: 15px 10px 8px #888888;
         }
 
-        ul.twitter_feed_title {
-            margin:5% 0 0 25%;
+        #twitter_feed_title {
+            margin:6% 12% 0 0;
             font-weight:bold;
             font-size:28px;
             text-shadow:0 1px 1px #C5C5C5;
-            text-decoration:none;
-            width:40%;
-            li.twitter_bird { 
+            display:inline-block;
+            .twitter_bird { 
               background:url("/images/bird_twitter.png") 0 0 no-repeat;
-              display:block;
               height:50px;
               width:60px;
               float:left;
             }
-            li.latest_tweets {}
+            .latest_tweets {width:130%;}
         }
 
         .about_me_pic {
