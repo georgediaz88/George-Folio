@@ -3,8 +3,9 @@
     %h1 My <span>Portfolio</span>
 
 #home_image
-.twitter_feed_title
-  %span <u>Latest Feed</u>
+%ul.twitter_feed_title
+  %li.twitter_bird
+  %li.latest_tweets <span>Latest Tweets</span>
 
 - @latest_tweets.each do |tweet|
   %h4.home_wording
