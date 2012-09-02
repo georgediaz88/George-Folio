@@ -18,7 +18,7 @@ $gray_color: Grey;
   *Kindle Max Width is 600px*
 */
 
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
   body { padding:auto !important;}
   #wrapper { width:90% !important; }
   #container {display:none;}
@@ -155,7 +155,7 @@ body#per_page{
         
 
         .home_wording {
-            padding: 8px;
+            padding: 4px;
             color:#595454;
             -webkit-box-shadow: -4px 15px 25px #888888;
             box-shadow: -4px 15px 25px #888888;
