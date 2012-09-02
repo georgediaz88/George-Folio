@@ -61,7 +61,8 @@ module GeorgeFolio
                    body: "#{@contact.description} --- sent from #{@contact.email}"
         haml :receipt_email #Show User Thank You Template
       else
-        haml :contact_me
+        # haml :contact_me
+        redirect '/contact_me'
       end
     end
 

@@ -18,7 +18,7 @@ $gray_color: Grey;
   *Kindle Max Width is 600px*
 */
 
-@media (min-width: 481px) and (max-width: 768px) {
+@media (max-width: 768px) {
   body { padding:auto !important;}
   #wrapper { width:90% !important; }
   #container {display:none;}
@@ -27,7 +27,6 @@ $gray_color: Grey;
   #home_image {width:auto; height:387px !important; width:380px !important;}
   .twitter {display:none;}
   .linked_in {display:none;}
-/*  ul.twitter_feed_title {margin:5% 0 0 0% !important; width:65% !important;}*/
 }
 
 /*
@@ -156,7 +155,7 @@ body#per_page{
         
 
         .home_wording {
-            padding-top: 8px;
+            padding: 8px;
             color:#595454;
             -webkit-box-shadow: -4px 15px 25px #888888;
             box-shadow: -4px 15px 25px #888888;
