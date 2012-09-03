@@ -96,7 +96,7 @@ module GeorgeFolio
       unless $redis.llen('my_tweets') > 1
         tweets = Twitter.user_timeline(count: 2)
         tweets.reverse.each {|tweet| $redis.lpush 'my_tweets', "#{tweet.text}PipeTweetPipe#{tweet.source}"}
-        $redis.expire 'my_tweets', 60*5
+        $redis.expire 'my_tweets', 60*15
       end
     end
 
