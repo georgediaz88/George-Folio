@@ -1,11 +1,16 @@
 require 'pony'
 require 'data_mapper'
+require 'redis'
+require 'uri'
 
 module GeorgeFolio
   class MyApp < Sinatra::Base
 
     configure do
       %w{ /config/email_defaults /lib/user /lib/contact }.each {|file| require File.dirname(__FILE__) + file }
+      redis_url = ENV["REDISTOGO_URL"] || 'redis://localhost:6379/'
+      uri = URI.parse(redis_url)
+      $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
     end
     
     configure(:development,:production) do
@@ -33,7 +38,16 @@ module GeorgeFolio
 
     #HTTP calls
     get '/' do
-      @latest_tweets = Twitter.user_timeline[0..1]
+      if $redis
+        @latest_tweets = []
+        fetch_tweets_if_needed
+        tweet_objects = $redis.lrange 'my_tweets', 0, 1
+        tweet_objects.each do |tweet_obj|
+          parsed_tweet = tweet_obj.split('PipeTweetPipe')
+          text, source = parsed_tweet[0], parsed_tweet[1]
+          @latest_tweets << {:text => text, :source => source}
+        end
+      end
       haml :index
     end
 
@@ -81,8 +95,17 @@ module GeorgeFolio
       end
     end
     ###################################
+    
+    protected
+    
+    def fetch_tweets_if_needed
+      unless $redis.llen('my_tweets') > 1
+        $redis.expire 'my_tweets', 60*15
+        tweets = Twitter.user_timeline(count: 2)
+        tweets.reverse.each {|tweet| $redis.lpush 'my_tweets', "#{tweet.text}PipeTweetPipe#{tweet.source}"}
+      end
+    end
 
   end
 end
-
 
