@@ -11,13 +11,6 @@ module GeorgeFolio
       redis_url = ENV["REDISTOGO_URL"] || 'redis://localhost:6379/'
       uri = URI.parse(redis_url)
       $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
-      
-      EM.schedule do
-        TweetStream::Client.new.follow(59949265) do |status|
-          stored_txt = "#{status.text}PipeTweetPipe#{status.source}PipeTweetPipe#{status.id}"
-          $redis.lpush 'my_tweets', stored_txt
-        end
-      end
     end
     
     configure(:development,:production) do
@@ -116,6 +109,13 @@ module GeorgeFolio
         text, source = parsed_tweet[0], parsed_tweet[1]
         @latest_tweets << {:text => text, :source => source}
         #Note: parsed_tweet[2] is status_id
+      end
+    end
+    
+    EM.schedule do
+      TweetStream::Client.new.follow(59949265) do |status|
+        stored_txt = "#{status.text}PipeTweetPipe#{status.source}PipeTweetPipe#{status.id}"
+        $redis.lpush 'my_tweets', stored_txt
       end
     end
 
