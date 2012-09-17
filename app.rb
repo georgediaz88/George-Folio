@@ -112,7 +112,7 @@ module GeorgeFolio
       end
     end
     
-    EM.schedule do
+    EM.next_tick do
       TweetStream::Client.new.follow(59949265) do |status|
         stored_txt = "#{status.text}PipeTweetPipe#{status.source}PipeTweetPipe#{status.id}"
         $redis.lpush 'my_tweets', stored_txt
