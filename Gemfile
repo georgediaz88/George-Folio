@@ -9,6 +9,7 @@ gem 'datamapper', '>= 1.1.0'
 gem 'twitter'
 gem 'active_attr'
 gem 'redis'
+gem 'tweetstream'
 
 group :development do
   gem 'guard-rspec'

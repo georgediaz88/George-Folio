@@ -11,6 +11,13 @@ module GeorgeFolio
       redis_url = ENV["REDISTOGO_URL"] || 'redis://localhost:6379/'
       uri = URI.parse(redis_url)
       $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+      
+      EM.schedule do
+        TweetStream::Client.new.follow(59949265) do |status|
+          stored_txt = "#{status.text}PipeTweetPipe#{status.source}PipeTweetPipe#{status.id}"
+          $redis.lpush 'my_tweets', stored_txt
+        end
+      end
     end
     
     configure(:development,:production) do
@@ -93,10 +100,13 @@ module GeorgeFolio
     protected
     
     def fetch_tweets_if_needed
-      unless $redis.llen('my_tweets') > 1
+      if $redis.llen('my_tweets') < 1 or $redis.llen('my_tweets') > 8 #reload tweets
+        $redis.del 'my_tweets'
         tweets = Twitter.user_timeline(count: 2)
-        tweets.reverse.each {|tweet| $redis.lpush 'my_tweets', "#{tweet.text}PipeTweetPipe#{tweet.source}"}
-        $redis.expire 'my_tweets', 60*15
+        tweets.reverse.each do |tweet| 
+          $redis.lpush 'my_tweets', "#{tweet.text}PipeTweetPipe#{tweet.source}PipeTweetPipe#{tweet.id}"
+        end
+        # $redis.expire 'my_tweets', 60*15
       end
     end
 
@@ -105,9 +115,27 @@ module GeorgeFolio
         parsed_tweet = tweet_obj.split('PipeTweetPipe')
         text, source = parsed_tweet[0], parsed_tweet[1]
         @latest_tweets << {:text => text, :source => source}
+        #Note: parsed_tweet[2] is status_id
       end
     end
 
   end
 end
 
+#puts 'start EM scheduler'
+# @cli.on_delete do |status_id, user_id|
+#   handle deleting status_id if in redis
+# end
+# ============ 
+#   TweetStream::Client.new(TWITTER_USERNAME, TWITTER_PASSWORD).on_delete do |status_id, user_id|
+#     # Tweet.delete(status_id)
+#     puts "#{status_id} deleted"
+#   end.on_limit do |skip_count|
+#     puts "limited, skip count #{skip_count}"
+#   end.track('#silviobasta') do |status|
+#     puts "[#{status.user.screen_name}] #{status.text}"
+#     tweet = { :text => status.text, :user => { :screen_name => status.user.screen_name } }
+#     DB['tweets'].insert(tweet)
+#     res = Net::HTTP.post_form(URI.parse("http://#{UPDATE_USERNAME}:#{UPDATE_PASSWORD}@silviobasta.heroku.com/update"), tweet)
+#   end
+#   puts 'end'

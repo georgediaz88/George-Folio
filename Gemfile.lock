@@ -104,6 +104,7 @@ GEM
       netrc (~> 0.7.1)
       rest-client (~> 1.6.1)
       rubyzip
+    http_parser.rb (0.5.3)
     i18n (0.6.0)
     json (1.6.6)
     json_pure (1.6.6)
@@ -180,11 +181,19 @@ GEM
       ripl-multi_line (>= 0.2.4)
       ripl-rack (>= 0.2.0)
       sinatra (>= 1.2.1)
+    tweetstream (1.1.4)
+      daemons (~> 1.1)
+      multi_json (>= 1.0)
+      twitter-stream (= 0.1.14)
     twitter (2.2.0)
       activesupport (>= 2.3.9, < 4)
       faraday (~> 0.7)
       multi_json (~> 1.0)
       simple_oauth (~> 0.1)
+    twitter-stream (0.1.14)
+      eventmachine (>= 0.12.8)
+      http_parser.rb (~> 0.5.1)
+      simple_oauth (~> 0.1.4)
     uuidtools (2.1.2)
     xpath (0.1.4)
       nokogiri (~> 1.3)
@@ -211,4 +220,5 @@ DEPENDENCIES
   sinatra
   thin
   tux
+  tweetstream
   twitter
