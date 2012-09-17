@@ -106,14 +106,17 @@ module GeorgeFolio
       tweet_objects.each do |tweet_obj|
         parsed_tweet = tweet_obj.split('PipeTweetPipe')
         text, source = parsed_tweet[0], parsed_tweet[1]
-        @latest_tweets << {text: text, source: source}
-        #Note: parsed_tweet[2] is status_id
+        @latest_tweets << {text: text, source: source} #Note: parsed_tweet[2] is status_id
       end
     end
 
-    def remove_tweet(status_id, usr_id) #WIP
-      puts status_id, usr_id
-      #$redis.lrem 'my_tweets' ...
+    def remove_tweet(status_id, usr_id)
+      redis_tweets = $redis.lrange 'my_tweets', 0, -1
+      redis_tweets.each do |tweet|
+        if tweet.include?(status_id.to_s)
+          $redis.lrem 'my_tweets', 1, tweet
+        end
+      end
     end
 
     EM.next_tick do
