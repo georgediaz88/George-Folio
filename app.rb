@@ -120,10 +120,12 @@ module GeorgeFolio
     end
 
     EM.next_tick do
-      TweetStream::Client.new.follow(59949265, delete: proc {|status_id, usr_id| remove_tweet(status_id, usr_id)}) do |status|
+      @cli = TweetStream::Client.new
+      @cli.follow(59949265) do |status|
         stored_txt = "#{status.text}PipeTweetPipe#{status.source}PipeTweetPipe#{status.id}"
         $redis.lpush 'my_tweets', stored_txt
       end
+      @cli.on_delete {|status_id, usr_id| remove_tweet(status_id, usr_id)}
     end
 
   end
