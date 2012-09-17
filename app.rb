@@ -29,7 +29,6 @@ module GeorgeFolio
       file_path = "../public/css/#{file_name}"
       scss "#{file_path}".to_sym
     end
-
     # get '/application.js' do
     #   coffee :'javascripts/application'
     # end
@@ -107,13 +106,18 @@ module GeorgeFolio
       tweet_objects.each do |tweet_obj|
         parsed_tweet = tweet_obj.split('PipeTweetPipe')
         text, source = parsed_tweet[0], parsed_tweet[1]
-        @latest_tweets << {:text => text, :source => source}
+        @latest_tweets << {text: text, source: source}
         #Note: parsed_tweet[2] is status_id
       end
     end
-    
+
+    def remove_tweet(status_id, usr_id) #WIP
+      puts status_id, usr_id
+      #$redis.lrem 'my_tweets' ...
+    end
+
     EM.next_tick do
-      TweetStream::Client.new.follow(59949265) do |status|
+      TweetStream::Client.new.follow(59949265, delete: proc {|status_id, usr_id| remove_tweet(status_id, usr_id)}) do |status|
         stored_txt = "#{status.text}PipeTweetPipe#{status.source}PipeTweetPipe#{status.id}"
         $redis.lpush 'my_tweets', stored_txt
       end
@@ -121,21 +125,3 @@ module GeorgeFolio
 
   end
 end
-
-#puts 'start EM scheduler'
-# @cli.on_delete do |status_id, user_id|
-#   handle deleting status_id if in redis
-# end
-# ============ 
-#   TweetStream::Client.new(TWITTER_USERNAME, TWITTER_PASSWORD).on_delete do |status_id, user_id|
-#     # Tweet.delete(status_id)
-#     puts "#{status_id} deleted"
-#   end.on_limit do |skip_count|
-#     puts "limited, skip count #{skip_count}"
-#   end.track('#silviobasta') do |status|
-#     puts "[#{status.user.screen_name}] #{status.text}"
-#     tweet = { :text => status.text, :user => { :screen_name => status.user.screen_name } }
-#     DB['tweets'].insert(tweet)
-#     res = Net::HTTP.post_form(URI.parse("http://#{UPDATE_USERNAME}:#{UPDATE_PASSWORD}@silviobasta.heroku.com/update"), tweet)
-#   end
-#   puts 'end'
