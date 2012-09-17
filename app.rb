@@ -106,7 +106,7 @@ module GeorgeFolio
       tweet_objects.each do |tweet_obj|
         parsed_tweet = tweet_obj.split('PipeTweetPipe')
         text, source = parsed_tweet[0], parsed_tweet[1]
-        @latest_tweets << {text: text, source: source} #Note: parsed_tweet[2] is status_id
+        @latest_tweets << {text: text, source: source}
       end
     end
 
