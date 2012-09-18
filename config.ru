@@ -1,13 +1,13 @@
 #LoadGems
-require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
 
-ENV['RACK_ENV'] ||= "development"
+ENV['RACK_ENV'] ||= 'development'
 Bundler.require(:default, (ENV['RACK_ENV'].to_sym))
 
 set :run, false
 set :raise_errors, true
+set :logging, true
 #set :views, proc { File.join(root, "templates") }
 
 vars_path = File.join(File.dirname(__FILE__), 'config', 'local_vars.rb')

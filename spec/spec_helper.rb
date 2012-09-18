@@ -1,19 +1,12 @@
-require 'sinatra'
 require 'bundler/setup'
-require 'active_attr'
-require 'twitter'
-require 'haml'
-require File.join(File.dirname(__FILE__), '..', 'app')
 require 'rack/test'
 require 'test/unit'
 require 'capybara/rspec'
 
-#setup test env
-#Bundler.require(:default, ENV['RACK_ENV'].to_sym)
-set :environment, :test
-set :run, false
-set :raise_errors, true
-set :logging, false
+ENV['RACK_ENV'] = 'test'
+Bundler.require(:default, ENV['RACK_ENV'].to_sym)
+
+require File.join(File.dirname(__FILE__), '..', 'app')
 
 def app
   GeorgeFolio::MyApp

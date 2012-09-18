@@ -1,7 +1,7 @@
-require 'pony'
 require 'data_mapper'
-require 'redis'
-require 'uri'
+# require 'pony'
+# require 'redis'
+# require 'uri'
 
 module GeorgeFolio
   class MyApp < Sinatra::Base
