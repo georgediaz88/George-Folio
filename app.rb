@@ -7,20 +7,29 @@ module GeorgeFolio
   class MyApp < Sinatra::Base
 
     configure do
-      %w{ /config/email_defaults /lib/user /lib/contact }.each {|file| require File.dirname(__FILE__) + file }
+      %w{ /config/email_defaults /lib/user /lib/contact /lib/tweet }.each {|file| require File.dirname(__FILE__) + file }
       redis_url = ENV["REDISTOGO_URL"] || 'redis://localhost:6379/'
       uri = URI.parse(redis_url)
       $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
     end
-    
-    configure(:development,:production) do
+
+    configure(:development, :production) do
       DataMapper.setup(:default, ENV["DATABASE_URL"] || "sqlite3://#{Dir.pwd}/folio.db")
       DataMapper.finalize.auto_upgrade! #Tells Datamapper to automaticly update the database with changes made
+
+      EM.next_tick do
+        @cli = TweetStream::Client.new
+        @cli.follow(59949265, :delete => Proc.new {|status_id, usr_id| Tweet.remove!(status_id, usr_id)}) do |status|
+          stored_txt = "#{status.text}PipeTweetPipe#{status.source}PipeTweetPipe#{status.id}"
+          $redis.lpush 'my_tweets', stored_txt
+        end
+      end
     end
 
     helpers do
       load("./lib/application_helper.rb")
       include ApplicationHelper
+      include TwitterMethods
     end
 
     ######### re-route for sass / possibly coffee?
@@ -88,45 +97,5 @@ module GeorgeFolio
       end
     end
     ###################################
-    
-    protected
-    
-    def fetch_tweets_if_needed
-      if $redis.llen('my_tweets') < 1 or $redis.llen('my_tweets') > 8 #reload tweets
-        $redis.del 'my_tweets'
-        tweets = Twitter.user_timeline(count: 2)
-        tweets.reverse.each do |tweet| 
-          $redis.lpush 'my_tweets', "#{tweet.text}PipeTweetPipe#{tweet.source}PipeTweetPipe#{tweet.id}"
-        end
-        # $redis.expire 'my_tweets', 60*15
-      end
-    end
-
-    def parse_from_redis(tweet_objects)
-      tweet_objects.each do |tweet_obj|
-        parsed_tweet = tweet_obj.split('PipeTweetPipe')
-        text, source = parsed_tweet[0], parsed_tweet[1]
-        @latest_tweets << {text: text, source: source}
-      end
-    end
-
-    def remove_tweet(status_id, usr_id)
-      redis_tweets = $redis.lrange 'my_tweets', 0, -1
-      redis_tweets.each do |tweet|
-        if tweet.include?(status_id.to_s)
-          $redis.lrem 'my_tweets', 1, tweet
-        end
-      end
-    end
-
-    EM.next_tick do
-      @cli = TweetStream::Client.new
-      @cli.follow(59949265) do |status|
-        stored_txt = "#{status.text}PipeTweetPipe#{status.source}PipeTweetPipe#{status.id}"
-        $redis.lpush 'my_tweets', stored_txt
-      end
-      @cli.on_delete {|status_id, usr_id| remove_tweet(status_id, usr_id)}
-    end
-
   end
 end
