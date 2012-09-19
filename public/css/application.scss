@@ -87,16 +87,20 @@ body#per_page{
         text-decoration:none;
         text-transform: uppercase;
         #subheader {
-            font-size:12px;
+            font-size:16px;
             height: 20px;
-            margin: -20px 0 0 -35px;
+            margin: -20px 0 12px -35px;
             #menu {
               ul {
                   list-style-type:none;
                   li {
                       float:left;
                       padding-right:12px;
-                      a {color: #FFFFFF;}
+                      a {
+                        color: darkgrey;
+                        text-decoration:none;
+                        &:hover { color: #fff; }
+                      }
                   }
               }
             }
