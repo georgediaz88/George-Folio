@@ -69,7 +69,7 @@ module GeorgeFolio
     post '/send_email' do
       @contact = Contact.new(params[:contact])
       if @contact.valid?
-        Pony.mail  to: 'georgediaz88@yahoo.com',
+        Pony.mail  to: 'georgediaz88@gmail.com',
                    subject: "Message Sent From #{@contact.name}",
                    body: "#{@contact.description} --- sent from #{@contact.email}"
         haml :receipt_email #Show User Thank You Template
