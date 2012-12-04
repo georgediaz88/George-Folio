@@ -43,6 +43,7 @@ module GeorgeFolio
 
     #HTTP calls
     get '/' do
+      $redis.del 'my_tweets'
       @latest_tweets = []
       fetch_tweets_if_needed
       tweet_objects = $redis.lrange 'my_tweets', 0, 1
