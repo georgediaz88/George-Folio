@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/pry/pry.git
-  revision: 83d3ceeb5ffe9402145771d76af1cdc63660cdc7
+  revision: 2eca2e1b7e3ff6b9a7471eacc3db1e910f40e567
   specs:
-    pry (0.9.10)
+    pry (0.9.11)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.3.1)
@@ -141,7 +141,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.19)
-    multi_json (1.3.7)
+    multi_json (1.4.0)
     multipart-post (1.1.5)
     netrc (0.7.7)
     nokogiri (1.5.5)
@@ -169,7 +169,7 @@ GEM
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
-    rspec-core (2.12.0)
+    rspec-core (2.12.1)
     rspec-expectations (2.12.0)
       diff-lcs (~> 1.1.3)
     rspec-mocks (2.12.0)
@@ -188,8 +188,7 @@ GEM
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
     slop (3.3.3)
-    stringex (1.5.0)
-      stringex
+    stringex (1.5.1)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -210,7 +209,7 @@ GEM
       em-twitter (~> 0.2)
       multi_json (~> 1.3)
       twitter (~> 4.0)
-    twitter (4.3.0)
+    twitter (4.4.0)
       faraday (~> 0.8)
       multi_json (~> 1.3)
       simple_oauth (~> 0.1.6)
