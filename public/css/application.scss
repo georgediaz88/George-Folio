@@ -2,6 +2,11 @@
 
 @import 'slides';
 
+/* Import Fonts
+------------------------------------------------------------ */
+@import url(http://fonts.googleapis.com/css?family=Lora);
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
 $standout_green: DarkSeaGreen;
 $fadeout_gray: DarkGrey;
 $gray_color: Grey;
@@ -60,12 +65,19 @@ a:link, a:visited {
 */
 
 body {
-	font:normal 62.5%/1.5 Helvetica, Arial, sans-serif;
+      // h1, h2, h3, h4, p, div {
+          //font-family: 'Oswald', sans-serif;
+      // }
+      //h3 {font-size:42px;}
+      //p {font-size:18px;}
+	//font:normal 62.5%/1.5 Helvetica, Arial, sans-serif;
+
+      font:normal 62.5%/1.5 'Oswald', sans-serif;
 	letter-spacing:0;
 	color:#434343;
 	padding:20px 0;
 	position:relative;
-	text-shadow:0 1px 0 rgba(255,255,255,.8);
+	//text-shadow:0 1px 0 rgba(255,255,255,.8);
 	-webkit-font-smoothing: subpixel-antialiased;
 }
 
@@ -74,13 +86,13 @@ body#per_page{
     background-color:#2C2C29;
 
     #wrapper {
-        width: 911px;
+        width: 940px;
         margin: 20px auto;
     }
 
     #logo {
         color: #FFFFFF;
-        font-family: Vera,Helvetica,Georgia;
+        //font-family: 'Oswald', sans-serif;
         font-size: 36px;
         margin-top: 7px;
         padding: 0;
@@ -158,11 +170,13 @@ body#per_page{
 
 
         .home_wording {
-            padding: 4px;
+            width:80%;
+            margin:2% auto;
+            padding: 12px;
             color:#595454;
             -webkit-box-shadow: -4px 15px 25px #888888;
             box-shadow: -4px 15px 25px #888888;
-            text-shadow: 0px 2px 1px #c5c5c5;
+            //text-shadow: 0px 2px 1px #c5c5c5;
             border-radius:8px;
             -ms-transition:-ms-transform 2s;
             -moz-transition:-moz-transform 2s; /* Firefox 4 */
@@ -170,7 +184,7 @@ body#per_page{
             -o-transition:-o-transform 2s; /* Opera */
 
             .tweet {
-                font-style:italic;
+                // font-style:italic;
             }
         }
 
@@ -186,7 +200,7 @@ body#per_page{
         #msg {display:none;}
         .er_msg {color:red;font-size:14px;}
 
-        p, #about_me_description, #my_work {font-family:helvetica;font-weight:bold;}
+        //p, #about_me_description, #my_work {font-family:helvetica;font-weight:bold;}
 
         .italic {font-style:italic;}
 
@@ -229,7 +243,7 @@ body#per_page{
                 background:-moz-linear-gradient(top, lightgrey, white);
             }
             .submit.bttn {
-                font-family: fantasy;
+                //font-family: fantasy;
                 color: #ffffff;
                 font-size: 20px;
                 padding: 10px;
@@ -247,17 +261,17 @@ body#per_page{
                 display: block;
                 font-size: 12px;
                 font-style:italic;
-                margin: 6px 0 0 76px;
+                margin: 6px 0 0 46px;
             }
 
         }
 
         #home_header {
           #home_name {
-              -webkit-box-shadow: -4px 15px 25px #888888;
-              box-shadow: -4px 15px 25px #888888;
+              // -webkit-box-shadow: -4px 15px 25px #888888;
+              // box-shadow: -4px 15px 25px #888888;
+              // border-radius:8px;
               text-shadow: 0px 1px 1px #c5c5c5;
-              border-radius:8px;
           }
         }
 
@@ -282,7 +296,7 @@ body#per_page{
               width:60px;
               float:left;
             }
-            .latest_tweets {width:130%;}
+            .latest_tweets {width:140%;}
         }
 
         .about_me_pic {
@@ -303,10 +317,9 @@ body#per_page{
 
         #about_me_description {
             text-align:left !important;
-            font-size: 14px !important;
+            font-size: 18px !important;
             color: $gray_color;
             p {
-                text-indent: 1.5em;
                 line-height:2.0em;
             }
             ul { list-style-type:circle;}
@@ -314,7 +327,7 @@ body#per_page{
 
         #my_work {
             text-align:left !important;
-            font-size: 14px !important;
+            font-size: 18px !important;
             color: $gray_color;
             .bsphere {
                 float:left;
@@ -324,7 +337,7 @@ body#per_page{
                 float:right;
             }
             /*img { box-shadow: -15px 20px 10px #888; }*/
-            p { text-indent: 1.5em; line-height:2.0em;}
+            p { line-height:2.0em;}
             ul { list-style-type:none;}
             li {}
         }
