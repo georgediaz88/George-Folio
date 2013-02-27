@@ -44,8 +44,7 @@ module GeorgeFolio
     #HTTP calls
     get '/' do
       @latest_tweets = []
-      #Temp Hack 4heroku:
-      $redis.del 'my_tweets'
+      #Temp Hack 4heroku: $redis.del 'my_tweets'
       fetch_tweets_if_needed
       tweet_objects = $redis.lrange 'my_tweets', 0, 1
       parse_from_redis(tweet_objects)
