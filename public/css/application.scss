@@ -37,28 +37,6 @@ $standout_green: DarkSeaGreen;
 $fadeout_gray: DarkGrey;
 $gray_color: Grey;
 
-/*
-  Responsive Mobile
-
-  Landscape smart phone
-  @media (min-width: 321px) and (max-width: 480px)
-
-  Portrait smart phone
-  @media (max-width: 320px)
-
-  *Kindle Max Width is 600px*
-*/
-
-@media (min-width: 481px) and (max-width: 768px) {
-  body { padding:auto !important;}
-  #wrapper { width:90% !important; }
-  #container {display:none;}
-  #description {width:60% !important;}
-  #pagewrap #my_work .bsphere, #pagewrap #my_work .sinatra {width:185px;}
-  #home_image {width:auto; height:387px !important; width:380px !important;}
-  .twitter {display:none;}
-  .linked_in {display:none;}
-}
 
 /*
 	Footer
@@ -380,5 +358,28 @@ body#per_page{
             }
         }
     }
+}
+
+/*
+  Responsive Mobile
+
+  Landscape smart phone
+  @media (min-width: 321px) and (max-width: 480px)
+
+  Portrait smart phone
+  @media (max-width: 320px)
+
+  *Kindle Max Width is 600px*
+*/
+
+@media (min-width: 481px) and (max-width: 768px) {
+  body { padding:auto !important;}
+  #wrapper { width:90% !important; }
+  #container {display:none;}
+  #description {width:60% !important;}
+  #pagewrap #my_work .bsphere, #pagewrap #my_work .sinatra {width:38%;}
+  #home_image {width:auto; height:387px !important; width:380px !important;}
+  // .twitter {display:none;}
+  // .linked_in {display:none;}
 }
 
