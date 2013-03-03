@@ -6,7 +6,8 @@
 #twitter_feed_title
   .twitter_bird
   .latest_tweets <span>Latest Tweets</span>
-- @latest_tweets.each do |tweet|
-  %h4.home_wording
-    .tweet "#{link_up tweet[:text]}"
-    <span><a href='http://www.twitter.com/georgediaz23' target='_blank'>tweet</a> via #{tweet[:source]}</span>
+#tweets_list
+  - @latest_tweets.each do |tweet|
+    %h4.home_wording
+      .tweet "#{link_up tweet[:text]}"
+      <span><a href='http://www.twitter.com/georgediaz23' target='_blank'>tweet</a> via #{tweet[:source]}</span>

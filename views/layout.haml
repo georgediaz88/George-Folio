@@ -7,8 +7,8 @@
     %script{:type=>'text/javascript', :src=>'/javascripts/jquery-1.8.3.min.js'}
     / %script{:type=>'text/javascript', :src=>'/javascripts/application.js'}
 
-  %body#per_page
-    #wrapper
+  %body
+    #pagewrap
       #logo
         George M Diaz
         #subheader
@@ -22,18 +22,16 @@
                 %a{:href=>'/my_work'} My Work
               %li
                 %a{:href=>'/contact_me'} Contact Me
-
-      #pagewrap
-        / #social_media
-        /   #contact_methods
-        /     %ul
-        /       %li.twitter
-        /         %a{:href => 'https://twitter.com/georgediaz23', :target => '_blank'}
-        /           %img{:src => '/images/twitter.png', :height => '50px', :width => '50px'}
-        /       %li.linked_in
-        /         %a{:href => 'http://www.linkedin.com/pub/george-diaz/20/89/615', :target => '_blank'}
-        /           %img{:src => '/images/linked_in_small.png', :height => '50px', :width => '50px'}
-
+      #content
         = yield
 
-        #footer_email
+/ #footer_email
+/ #social_media
+/   #contact_methods
+/     %ul
+/       %li.twitter
+/         %a{:href => 'https://twitter.com/georgediaz23', :target => '_blank'}
+/           %img{:src => '/images/twitter.png', :height => '50px', :width => '50px'}
+/       %li.linked_in
+/         %a{:href => 'http://www.linkedin.com/pub/george-diaz/20/89/615', :target => '_blank'}
+/           %img{:src => '/images/linked_in_small.png', :height => '50px', :width => '50px'}
