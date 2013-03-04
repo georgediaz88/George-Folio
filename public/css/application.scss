@@ -255,8 +255,6 @@ body {
                 margin:auto;
                 height:387px;
                 width:380px;
-                // -webkit-box-shadow: 15px 10px 8px #888888;
-                // box-shadow: 15px 10px 8px #888888;
             }
 
             #twitter_feed_title {
@@ -345,12 +343,14 @@ body {
   body #pagewrap #content #my_work, body #pagewrap #content #about_me_description {font-size:0.4em !important;}
   h4 {font-size:0.65em !important;}
   h3 {font-size:0.75em !important;}
+  #logo {font-size:1em !important;}
   #home_name h1 {font-size: 0.95em !important;}
   form label {font-size:0.60em !important;}
   .submit.bttn {margin:auto !important;}
   label.error {font-size:0.40em !important; margin:2% 0 0 0 !important;}
   #subheader {
-    font-size:34% !important;
+    font-size:50% !important;
+    margin-top:-4% !important;
     // margin:-3% 0 6% -4% !important;
   }
   #pagewrap #my_work .bsphere, #pagewrap #my_work .sinatra {width:38%;}
@@ -373,10 +373,12 @@ body {
 @media (min-width: 321px) and (max-width: 480px){
   body #pagewrap #content #my_work, body #pagewrap #content #about_me_description {font-size:0.5em !important;}
   h4 {font-size:0.75em !important;}
+  #logo {font-size:1.25em !important;}
+  #home_name h1 {font-size: 1.5em !important;}
   form label {font-size:0.70em !important;}
   label.error {font-size:0.50em !important; margin:2% 0 0 0 !important;}
   .submit.bttn {margin:auto !important;}
-  #subheader {font-size:40% !important;}
+  #subheader {font-size:50% !important; margin-top:-4% !important;}
   #pagewrap #my_work .bsphere, #pagewrap #my_work .sinatra {width:38%;}
   .padded_email_box, .padded_text_box {width:auto !important; height:auto !important;}
   #description {width:100% !important;}
@@ -399,6 +401,18 @@ body {
   #wrapper { width:90% !important; }
   #container {display:none;}
   #description {width:60% !important;}
-  // #home_image {width:auto; height:387px !important; width:380px !important;}
+  #home_image {
+      -webkit-box-shadow: 15px 10px 8px #888888;
+      box-shadow: 15px 10px 8px #888888;
+  }
+}
+
+// Track Laptops/Desktops
+
+@media (min-width: 769px) {
+  #home_image {
+      -webkit-box-shadow: 15px 10px 8px #888888;
+      box-shadow: 15px 10px 8px #888888;
+  }
 }
 
