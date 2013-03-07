@@ -1,4 +1,3 @@
-require 'data_mapper'
 
 module GeorgeFolio
   class MyApp < Sinatra::Base
@@ -8,11 +7,12 @@ module GeorgeFolio
       redis_url = ENV["REDISTOGO_URL"] || 'redis://localhost:6379/'
       uri = URI.parse(redis_url)
       $redis = Redis.new(host: uri.host, port: uri.port, password: uri.password)
+      Mongoid.load!('config/mongoid.yml')
     end
 
     configure(:development, :production) do
-      DataMapper.setup(:default, ENV["DATABASE_URL"] || "sqlite3://#{Dir.pwd}/folio.db")
-      DataMapper.finalize.auto_upgrade! #Tells Datamapper to automaticly update the database with changes made
+      #DataMapper.setup(:default, ENV["DATABASE_URL"] || "sqlite3://#{Dir.pwd}/folio.db")
+      #DataMapper.finalize.auto_upgrade! #Tells Datamapper to automaticly update the database with changes made
 
       EM.next_tick do
         @cli = TweetStream::Client.new

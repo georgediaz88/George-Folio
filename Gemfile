@@ -4,19 +4,22 @@ gem 'sinatra'
 gem 'haml'
 gem 'sass'
 gem 'pony'
-gem 'datamapper', '>= 1.1.0'
+gem 'mongo'
+gem 'mongoid', git: 'git://github.com/mongoid/mongoid.git'
+gem 'bson_ext'
+gem 'activesupport'
 gem 'twitter'
-gem 'active_attr'
 gem 'redis'
 gem 'tweetstream'
+#gem 'datamapper', '>= 1.1.0'
 
 group :development do
   gem 'guard-rspec'
-  gem 'dm-sqlite-adapter'
   gem 'tux'
   gem 'shotgun', :require => false
   gem 'thin', :require => false
-  gem 'pry', :git => 'git://github.com/pry/pry.git'
+  gem 'pry', git: 'git://github.com/pry/pry.git'
+  # gem 'dm-sqlite-adapter'
 end
 
 group :test do
@@ -26,5 +29,5 @@ end
 
 group :production do
   gem 'pg'
-  gem 'dm-postgres-adapter'
+  # gem 'dm-postgres-adapter'
 end

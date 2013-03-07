@@ -5,6 +5,7 @@ require 'sinatra'
 ENV['RACK_ENV'] ||= 'development'
 Bundler.require(:default, (ENV['RACK_ENV'].to_sym))
 
+enable :sessions
 set :run, false
 set :raise_errors, true
 #set :views, proc { File.join(root, "templates") }
