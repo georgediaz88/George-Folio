@@ -8,7 +8,7 @@ GIT
       slop (~> 3.4)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     active_attr (0.7.0)
       activemodel (>= 3.0.2, < 4.1)
