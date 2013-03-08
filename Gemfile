@@ -11,6 +11,7 @@ gem 'twitter'
 gem 'redis'
 gem 'tweetstream'
 gem 'active_attr'
+gem 'foreman'
 # gem 'mongo'
 
 group :development do
