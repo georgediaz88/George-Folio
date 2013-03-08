@@ -1,6 +1,6 @@
-source :rubygems
+source "https://rubygems.org"
+ruby "1.9.3"
 
-ruby '1.9.3'
 gem 'sinatra'
 gem 'haml'
 gem 'sass'
