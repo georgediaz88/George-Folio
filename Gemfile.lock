@@ -20,7 +20,6 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.2.8)
-    bond (0.4.3)
     bson (1.8.3)
     bson_ext (1.8.3)
       bson (~> 1.8.3)
@@ -109,14 +108,6 @@ GEM
     rack-test (0.6.2)
       rack (>= 1.0)
     redis (3.0.3)
-    ripl (0.7.0)
-      bond (~> 0.4.2)
-    ripl-multi_line (0.3.0)
-      ripl (>= 0.3.6)
-    ripl-rack (0.2.0)
-      rack (>= 1.0)
-      rack-test (>= 0.5)
-      ripl (>= 0.3.5)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -150,11 +141,6 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    tux (0.3.0)
-      ripl (>= 0.3.5)
-      ripl-multi_line (>= 0.2.4)
-      ripl-rack (>= 0.2.0)
-      sinatra (>= 1.2.1)
     tweetstream (2.4.0)
       daemons (~> 1.1)
       em-http-request (~> 1.0.2)
@@ -192,6 +178,5 @@ DEPENDENCIES
   shotgun
   sinatra
   thin
-  tux
   tweetstream
   twitter

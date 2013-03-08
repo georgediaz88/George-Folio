@@ -1,3 +1,9 @@
+require 'sinatra'
+require 'mongoid'
+require 'pony'
+require 'active_attr'
+require 'redis'
+require 'eventmachine'
 
 module GeorgeFolio
   class MyApp < Sinatra::Base
