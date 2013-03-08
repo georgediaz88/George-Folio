@@ -1,11 +1,12 @@
 class Contact
-  include Mongoid::Document
+  include ActiveAttr::Model
+  include ActiveAttr::MassAssignment
 
-  field :name, type: String
-  field :email, type: String
-  field :description, type: String
+  attribute :name
+  attribute :email
+  attribute :description
 
-  validates :name, presence: true
-  validates :email, presence: true
-  validates :description, presence: true
+  validates_presence_of :name, message: 'cant be blank'
+  validates_presence_of :email, message: 'cant be blank'
+  validates_presence_of :description, message: 'cant be blank'
 end

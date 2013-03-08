@@ -11,9 +11,6 @@ module GeorgeFolio
     end
 
     configure(:development, :production) do
-      #DataMapper.setup(:default, ENV["DATABASE_URL"] || "sqlite3://#{Dir.pwd}/folio.db")
-      #DataMapper.finalize.auto_upgrade! #Tells Datamapper to automaticly update the database with changes made
-
       EM.next_tick do
         @cli = TweetStream::Client.new
         @cli.follow(59949265, :delete => Proc.new {|status_id, usr_id| Tweet.remove!(status_id, usr_id)}) do |status|

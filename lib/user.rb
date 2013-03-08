@@ -4,7 +4,6 @@ class User
   include Mongoid::Document
   attr_accessor :password
 
-  field :id, type: Integer
   field :email, type: String
   field :hashed_password, type: String
 
