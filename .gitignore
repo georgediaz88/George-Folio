@@ -1,3 +1,4 @@
+.env
 folio*.db
 config/local_vars.rb
 .DS_Store
