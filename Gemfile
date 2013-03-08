@@ -28,5 +28,5 @@ end
 
 group :production do
   gem 'pg'
-  # gem 'dm-postgres-adapter'
+  gem 'dm-postgres-adapter'
 end
