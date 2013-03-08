@@ -8,6 +8,7 @@ class User
   field :last_name, type: String
   field :email, type: String
   field :hashed_password, type: String
+  field :is_admin, type:Integer
 
   validates :first_name, presence: true
   validates :last_name, presence: true
