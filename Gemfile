@@ -12,13 +12,13 @@ gem 'redis'
 gem 'tweetstream'
 gem 'active_attr'
 gem 'foreman'
+gem 'thin'
 # gem 'mongo'
 
 group :development do
   gem 'guard-rspec'
   gem 'tux'
   gem 'shotgun', :require => false
-  gem 'thin', :require => false
   gem 'pry', git: 'git://github.com/pry/pry.git'
   # gem 'dm-sqlite-adapter'
 end
