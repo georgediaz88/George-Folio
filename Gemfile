@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 ruby '1.9.3'
 
 gem 'sinatra'
@@ -16,6 +16,7 @@ gem 'thin'
 
 group :development do
   gem 'guard-rspec'
+  gem 'sinatra-contrib'
   gem 'shotgun', :require => false
   gem 'pry', git: 'git://github.com/pry/pry.git'
 end

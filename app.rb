@@ -4,6 +4,7 @@ require 'pony'
 require 'active_attr'
 require 'redis'
 require 'eventmachine'
+require 'sinatra/reloader' if development?
 
 module GeorgeFolio
   class MyApp < Sinatra::Base
@@ -14,6 +15,10 @@ module GeorgeFolio
       redis_url = ENV["REDISTOGO_URL"] || 'redis://localhost:6379/'
       uri = URI.parse(redis_url)
       $redis = Redis.new(host: uri.host, port: uri.port, password: uri.password)
+    end
+
+    configure(:development) do
+      register Sinatra::Reloader
     end
 
     configure(:development, :production) do
