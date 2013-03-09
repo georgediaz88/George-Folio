@@ -292,7 +292,7 @@ body {
             h3.page_title {
               text-align: center;
               font-family: 'oswaldregular', sans-serif;
-              // font-size:1.8em;
+              font-size:1.8em;
             }
 
             #about_me_description {
@@ -305,7 +305,7 @@ body {
                 ul { list-style-type:circle;}
                 h3 {
                   font-size:1.5em !important;
-                  font-family: 'oswaldbold', sans-serif;
+                  // font-family: 'oswaldbold', sans-serif;
                 }
             }
 
@@ -325,7 +325,7 @@ body {
                 ul { list-style-type:none;}
                 h3 {
                   font-size:1.5em !important;
-                  font-family: 'oswaldbold', sans-serif;
+                  // font-family: 'oswaldbold', sans-serif;
                 }
             }
         }
@@ -345,6 +345,7 @@ body {
   h3 {font-size:0.75em !important;}
   #logo {font-size:1em !important;}
   #home_name h1 {font-size: 0.95em !important;}
+  h3.page_title {font-size: 0.75em !important;}
   form label {font-size:0.60em !important;}
   .submit.bttn {margin:auto !important;}
   label.error {font-size:0.40em !important; margin:2% 0 0 0 !important;}
@@ -375,6 +376,7 @@ body {
   h4 {font-size:0.75em !important;}
   #logo {font-size:1.25em !important;}
   #home_name h1 {font-size: 1.5em !important;}
+  h3.page_title {font-size: 1.3em !important;}
   form label {font-size:0.70em !important;}
   label.error {font-size:0.50em !important; margin:2% 0 0 0 !important;}
   .submit.bttn {margin:auto !important;}
