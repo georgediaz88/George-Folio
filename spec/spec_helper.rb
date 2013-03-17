@@ -1,6 +1,5 @@
 require 'bundler/setup'
 require 'rack/test'
-require 'test/unit'
 require 'capybara/rspec'
 
 ENV['RACK_ENV'] = 'test'

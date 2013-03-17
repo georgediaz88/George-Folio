@@ -5,7 +5,7 @@ module GeorgeFolio
 
     configure do
       Mongoid.load!('config/mongoid.yml')
-      %w{ /config/email_defaults /lib/user /lib/contact /lib/tweet }.each {|file| require File.dirname(__FILE__) + file }
+      %w{ config/email_defaults lib/user lib/contact lib/tweet }.each {|ext| require "#{File.dirname(__FILE__)}/#{ext}" }
       redis_url = ENV["REDISTOGO_URL"] || 'redis://localhost:6379/'
       uri = URI.parse(redis_url)
       $redis = Redis.new(host: uri.host, port: uri.port, password: uri.password)
