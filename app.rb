@@ -9,6 +9,7 @@ module GeorgeFolio
       redis_url = ENV["REDISTOGO_URL"] || 'redis://localhost:6379/'
       uri = URI.parse(redis_url)
       $redis = Redis.new(host: uri.host, port: uri.port, password: uri.password)
+      use Rack::CommonLogger
     end
 
     configure(:development, :production) do

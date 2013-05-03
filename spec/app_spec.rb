@@ -11,22 +11,22 @@ describe "My Sites Pages" do
     get '/'
     last_response.should be_ok
   end
-  
+
   it "should persist homepage text name" do
     get '/'
     last_response.body.should match(/George's Portfolio/)
   end
-  
+
   it "should see About Me on Top" do
     get '/about_me'
     last_response.body.should match(/About Me/)
   end
-  
+
   it "should respond successfuly to My Work page" do
     get '/my_work'
     last_response.should be_ok
   end
-  
+
   it "should respond successfuly to Contact Me page" do
     get '/contact_me'
     last_response.status.should eql(200) # this is alternate to be_ok
@@ -39,7 +39,7 @@ describe "Test Email Feature" do
   before(:all) do
     Pony.stub!(:deliver)
   end
-  
+
   it "sends mail" do
     Pony.should_receive(:deliver) do |mail|
       mail.to.should == [ 'test@test.com' ]
@@ -47,7 +47,7 @@ describe "Test Email Feature" do
       mail.subject.should == 'hi'
       mail.body.should == 'Hello World!'
     end
- 
+
     # visit '/contact_me'
     # fill_in 'name', :with => 'Jon Doe'
     # fill_in 'email', :with => 'test@test.com'
@@ -59,7 +59,7 @@ describe "Test Email Feature" do
                subject: 'hi',
                body: 'Hello World!'
   end
-  
+
   it "requires :to paramater to be initialized" do
     lambda { Pony.mail({}) }.should raise_error(ArgumentError)
   end
@@ -67,16 +67,12 @@ describe "Test Email Feature" do
 end
 
 describe "User" do
+  let(:user) { User.create(email: 'jondoe@apple.com', password: 'pass') }
 
-  before(:each) do
-    @user = User.create(email: 'jondoe@apple.com', password: 'pass')
-      #think of replacing w/ Fabricator or FactoryGirl
-  end
-  
   it "should return correct user attributes" do
-    @user.email.should eql('jondoe@apple.com')
-    @user.stub(:hashed_password).and_return('pass_encrypted')
-    @user.hashed_password.should eql('pass_encrypted')
+    user.email.should eql('jondoe@apple.com')
+    user.stub(:hashed_password).and_return('pass_encrypted')
+    user.hashed_password.should eql('pass_encrypted')
   end
 end
 

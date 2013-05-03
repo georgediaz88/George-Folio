@@ -3,3 +3,5 @@ folio*.db
 config/local_vars.rb
 .DS_Store
 .sass-cache/**/*
+tmp/**/*
+personal.sublime-*
