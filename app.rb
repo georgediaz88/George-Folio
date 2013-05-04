@@ -5,8 +5,8 @@ module GeorgeFolio
 
     configure do
       Mongoid.load!('config/mongoid.yml')
-      %w{ config/email_defaults lib/user lib/contact lib/tweet }.each {|ext| require "#{File.dirname(__FILE__)}/#{ext}" }
-      redis_url = ENV["REDISTOGO_URL"] || 'redis://localhost:6379/'
+      %w{config/email_defaults lib/user lib/contact lib/tweet lib/application_helper}.each {|ext| require "#{File.dirname(__FILE__)}/#{ext}" }
+      redis_url = ENV['REDISTOGO_URL'] || 'redis://localhost:6379/'
       uri = URI.parse(redis_url)
       $redis = Redis.new(host: uri.host, port: uri.port, password: uri.password)
       use Rack::CommonLogger
@@ -23,12 +23,11 @@ module GeorgeFolio
     end
 
     helpers do
-      load("./lib/application_helper.rb")
       include ApplicationHelper
       include TwitterMethods
     end
 
-    ######### re-route for sass / possibly coffee?
+    ######### re-route for sass / possibly coffeescript?
     get '/css/*.css' do
       file_name = params[:splat].first
       file_path = "../public/css/#{file_name}"
@@ -74,12 +73,10 @@ module GeorgeFolio
                    body: "#{@contact.description} --- sent from #{@contact.email}"
         haml :receipt_email #Show User Thank You Template
       else
-        # haml :contact_me
         redirect '/contact_me'
       end
     end
 
-    ######### Tweet Section ##########
     get '/tweet' do
       protected!
       haml :tweet
@@ -93,6 +90,6 @@ module GeorgeFolio
         redirect '/'
       end
     end
-    ###################################
+
   end
 end

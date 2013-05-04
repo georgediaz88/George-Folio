@@ -14,7 +14,7 @@ vars_path = File.join(File.dirname(__FILE__), 'config', 'local_vars.rb')
 load(vars_path) if File.exists? vars_path
 
 require File.join(File.dirname(__FILE__), 'app')
-      
+
 Twitter.configure do |config|
   config.consumer_key       = ENV['C_KEY']
   config.consumer_secret    = ENV['CS_KEY']
