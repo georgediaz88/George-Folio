@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe "My Sites Pages" do
-
   before(:each) do
     Twitter.stub!(:configure).and_return true
     Twitter.stub!(:user_timeline).and_return([])
@@ -31,12 +30,10 @@ describe "My Sites Pages" do
     get '/contact_me'
     last_response.status.should eql(200) # this is alternate to be_ok
   end
-
 end
 
 describe "Test Email Feature" do
-
-  before(:all) do
+  before(:each) do
     Pony.stub!(:deliver)
   end
 
@@ -48,11 +45,6 @@ describe "Test Email Feature" do
       mail.body.should == 'Hello World!'
     end
 
-    # visit '/contact_me'
-    # fill_in 'name', :with => 'Jon Doe'
-    # fill_in 'email', :with => 'test@test.com'
-    # fill_in 'description', :with => 'Hello World!'
-    # click_button 'Send'
 
     Pony.mail  to: 'test@test.com',
                from: 'me@test.com',
@@ -60,19 +52,16 @@ describe "Test Email Feature" do
                body: 'Hello World!'
   end
 
+  it 'should allow contact me form to submit to email and redirect to thank you page' do
+    visit '/contact_me'
+    fill_in 'contact[name]', :with => 'Jon Doe'
+    fill_in 'contact[email]', :with => 'test@test.com'
+    fill_in 'contact[description]', :with => 'Hello World!'
+    click_button 'Send'
+    page.should have_content('THANKS FOR YOUR EMAIL')
+  end
+
   it "requires :to paramater to be initialized" do
     lambda { Pony.mail({}) }.should raise_error(ArgumentError)
   end
-
 end
-
-describe "User" do
-  let(:user) { User.create(email: 'jondoe@apple.com', password: 'pass') }
-
-  it "should return correct user attributes" do
-    user.email.should eql('jondoe@apple.com')
-    user.stub(:hashed_password).and_return('pass_encrypted')
-    user.hashed_password.should eql('pass_encrypted')
-  end
-end
-

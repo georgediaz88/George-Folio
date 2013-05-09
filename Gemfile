@@ -25,6 +25,7 @@ end
 group :test do
   gem 'rspec'
   gem 'capybara'
+  gem 'factory_girl'
 end
 
 group :production do
