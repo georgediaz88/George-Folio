@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "My Sites Pages" do
   before(:each) do
-    Twitter.stub!(:configure).and_return true
-    Twitter.stub!(:user_timeline).and_return([])
+    Twitter.stub(:configure => true)
+    Twitter.stub(:user_timeline => [])
   end
 
   it "should respond successfuly to homepage" do

@@ -6,12 +6,10 @@ describe "User" do
   end
 
   it 'should return correct user attributes' do
-    @user.email.should eql('jondoe@apple.com')
-    @user.stub(:hashed_password).and_return('pass_encrypted')
-    @user.hashed_password.should eql('pass_encrypted')
+    expect(@user.email).to eql('jondoe@apple.com')
   end
 
   it 'should encrypt password' do
-    @user.hashed_password.should_not be_nil
+    expect(@user.hashed_password).to eql(Digest::SHA1.hexdigest(@user.password))
   end
 end
