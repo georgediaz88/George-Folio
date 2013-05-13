@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'net/http'
 
 describe "My Sites Pages" do
   before(:each) do
