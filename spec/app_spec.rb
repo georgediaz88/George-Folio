@@ -38,31 +38,42 @@ describe "Test Email Feature" do
     Pony.stub!(:deliver)
   end
 
-  it "sends mail" do
-    Pony.should_receive(:deliver) do |mail|
-      mail.to.should == [ 'test@test.com' ]
-      mail.from.should == [ 'me@test.com' ]
-      mail.subject.should == 'hi'
-      mail.body.should == 'Hello World!'
+  context "send good emails" do
+    it "sends mail" do
+      Pony.should_receive(:deliver) do |mail|
+        mail.to.should == [ 'test@test.com' ]
+        mail.from.should == [ 'me@test.com' ]
+        mail.subject.should == 'hi'
+        mail.body.should == 'Hello World!'
+      end
+
+
+      Pony.mail  to: 'test@test.com',
+                 from: 'me@test.com',
+                 subject: 'hi',
+                 body: 'Hello World!'
     end
 
-
-    Pony.mail  to: 'test@test.com',
-               from: 'me@test.com',
-               subject: 'hi',
-               body: 'Hello World!'
+    it 'should allow contact me form to submit to email and redirect to thank you page' do
+      visit '/contact_me'
+      fill_in 'contact[name]', :with => 'Jon Doe'
+      fill_in 'contact[email]', :with => 'test@test.com'
+      fill_in 'contact[description]', :with => 'Hello World!'
+      click_button 'Send'
+      page.should have_content('THANKS FOR YOUR EMAIL')
+    end
   end
 
-  it 'should allow contact me form to submit to email and redirect to thank you page' do
-    visit '/contact_me'
-    fill_in 'contact[name]', :with => 'Jon Doe'
-    fill_in 'contact[email]', :with => 'test@test.com'
-    fill_in 'contact[description]', :with => 'Hello World!'
-    click_button 'Send'
-    page.should have_content('THANKS FOR YOUR EMAIL')
-  end
+  context "send bad emails" do
+    it "should show error msgs" do
+      visit '/contact_me'
+      click_button 'Send'
+      page.should have_content 'PLEASE SPECIFY YOUR NAME'
+      page.should have_content 'PLEASE SPECIFY YOUR EMAIL FOR CONTACT'
+    end
 
-  it "requires :to paramater to be initialized" do
-    lambda { Pony.mail({}) }.should raise_error(ArgumentError)
+    it "requires :to paramater to be initialized" do
+      lambda { Pony.mail({}) }.should raise_error(ArgumentError)
+    end
   end
 end
